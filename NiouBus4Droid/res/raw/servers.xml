@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServerList>
+	<Server ServerExternalCode="xxx" ServerName="xxx">
+		<NetworkList NetworkCount="xxx">
+			<Network NetworkIdx="1" NetworkId="1" NetworkName="xxx" NetworkExternalCode="xxx" NetworkAdditionalData="xxx" Comment="xxx"/>
+		</NetworkList>
+	</Server>	
+</ServerList>

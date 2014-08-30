@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item android:onClick="onAddFavorite" android:id="@+id/mi_addfavorite" android:title="Ajouter aux favoris" android:icon="@android:drawable/ic_menu_add" />
+	<item android:visible="false" android:onClick="onRemoveFavorite" android:id="@+id/mi_removefavorite" android:title="Supprimer des favoris" android:icon="@android:drawable/ic_menu_delete" />
+	<item android:onClick="onMapMode" android:id="@+id/mi_mapmode" android:title="Afficher le plan" android:icon="@android:drawable/ic_menu_mapmode" />
+</menu>

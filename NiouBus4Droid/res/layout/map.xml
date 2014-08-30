@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+		<ProgressBar 
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onSearch" 
+		    android:indeterminate="true"
+            android:indeterminateBehavior="repeat"
+            android:visibility="gone"
+            />
+
+        <ImageView
+            android:id="@+id/imageViewMyLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_mylocation"
+            android:onClick="onMyLocation" 
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/editTextAddress"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:imeOptions="actionSearch"
+            android:completionThreshold="3"
+            android:inputType="textPostalAddress|textAutoComplete|textAutoCorrect" />
+        <ImageView
+            android:id="@+id/imageViewSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_search"
+            android:onClick="onSearch" 
+            />
+
+        </LinearLayout>
+	
+    <org.osmdroid.views.MapView
+		android:id="@+id/mapview"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:clickable="true"
+    	tilesource="CloudMadeStandardTiles"
+    	style="1"
+		/>
+<!-- <org.andnav.osm.views.OpenStreetMapView
+    
+    android:layout_centerInParent="true"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true"
+    android:id="@+id/mapview"
+    tilesource="CloudMadeStandardTiles"
+    style="1"
+/>-->	<!-- <com.google.android.maps.MapView
+		android:id="@+id/mapview"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:clickable="true"
+		android:apiKey="0Gecto2HBF-9Rzdwzh_zz37MpOho7s8wN_g9vyw"
+		/>-->
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NiouBus</string>
+    <string name="title_loading">Chargement&#8230;</string>
+    <string name="message_loading_networks">Chargement des réseaux</string>
+    <string name="message_loading_lines">Chargement des lignes</string>
+    <string name="message_loading_stopareas">Chargement des arrêts</string>
+    <string name="message_loading_departures">Chargement des horaires</string>
+    <string name="title_networks">Réseaux</string>
+    <string name="title_lines">Lignes</string>
+    <string name="title_stopareas">Arrêts</string>
+    <string name="title_departures">Horaires</string>
+    <string name="title_main">NiouBus</string>
+    <string name="title_favorites">Favoris</string>
+    
+    <string name="lineschedule_no_active_circulation_this_date">Pas de circulation à cette date</string>
+    <string name="lineschedule_terminus">Terminus : pas de départ</string>
+    <string name="lineschedule_date_out_of_bound">Date hors limite</string>
+        
+	<style name="ThemeLight" parent="@android:style/Theme.Light">
+		<item name="android:textStyle">bold</item>
+	</style>
+	<style name="ThemeBlack" parent="@android:style/Theme.Black">
+		<item name="android:textStyle">bold</item>
+	</style>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Bretagne">
+		<ListPreference android:title="Choix du thème" android:summary="Sélection du thème d'affichage" android:key="keySelectTheme" android:defaultValue="light" android:entries="@array/listThemeNames" android:entryValues="@array/listThemeValues" />
+	</PreferenceCategory>
+</PreferenceScreen>

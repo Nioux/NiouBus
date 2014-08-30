@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="*" android:layout_weight="1" android:gravity="center_vertical">
+        <TableRow >
+	        <LinearLayout android:onClick="onClickImageServers" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+	        	<ImageView android:src="@drawable/clock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        	<TextView android:text="@string/title_departures" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        </LinearLayout>
+	        <LinearLayout android:onClick="onClickImageSearch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+	        	<ImageView android:src="@drawable/search" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        	<TextView android:text="Itinéraires" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        </LinearLayout>
+	        <LinearLayout android:onClick="onClickImageFavorites" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+	        	<ImageView android:src="@drawable/favorites" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        	<TextView android:text="Favoris" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        </LinearLayout>
+	    </TableRow>
+    </TableLayout>
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="*" android:layout_weight="1" android:gravity="center_vertical">
+        <TableRow >
+           	<LinearLayout android:onClick="onClickImageNetwork" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+	        	<ImageView android:src="@drawable/folder_home" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        	<TextView android:text="@string/title_networks" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        </LinearLayout>
+            <LinearLayout android:onClick="onClickImageParameters" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+	        	<ImageView android:src="@drawable/package_system" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        	<TextView android:text="Préférences" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        </LinearLayout>
+	        <!-- <LinearLayout android:onClick="onClickImageAbout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+	        	<ImageView android:src="@drawable/folder_home" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        	<TextView android:text="A propos de" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"/>
+	        </LinearLayout>-->
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

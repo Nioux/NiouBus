@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:padding="15dip">
+ 
+  <EditText 
+    android:id="@+id/EditTextTitle"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:inputType="text"
+	android:textAppearance="?android:attr/textAppearanceLarge"
+    android:paddingBottom="10dip" />
+ 
+  <EditText 
+    android:id="@+id/EditTextSubTitle"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:inputType="text"
+    android:layout_below="@id/EditTextTitle" />
+ 
+</RelativeLayout>

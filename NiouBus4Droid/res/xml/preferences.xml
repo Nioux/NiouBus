@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Cache">
+		<CheckBoxPreference android:enabled="false" android:title="Activer le cache" android:defaultValue="false" android:summary="Economise la batterie mais utilise du stockage" android:key="keyEnableCache" />
+        <Preference android:enabled="false" android:title="Vider le cache" android:summary="Pour libérer du stockage" android:key="keyEmptyCache" />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="Thèmes">
+		<ListPreference android:title="Choix du thème" android:summary="Sélection du thème d'affichage" android:key="keySelectTheme" android:defaultValue="light" android:entries="@array/listThemeNames" android:entryValues="@array/listThemeValues" />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="A propos de">
+		<Preference android:title="A propos de NiouBus">
+			<intent android:action="android.intent.action.VIEW" android:targetPackage="org.nioux.nioubus" android:targetClass="org.nioux.nioubus.activities.AboutActivity" />
+		</Preference>
+	</PreferenceCategory>
+</PreferenceScreen>

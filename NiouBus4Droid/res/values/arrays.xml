@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="listThemeNames">
+		<item>Lumineux</item>
+		<item>Sombre</item>
+	</string-array>
+	<string-array name="listThemeValues">
+		<item>org.nioux.nioubus:style/ThemeLight</item>
+		<item>org.nioux.nioubus:style/ThemeBlack</item>
+	</string-array>
+</resources>

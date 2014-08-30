@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center|left"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/ibAddBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:onClick="onAddBookmark"
+            android:src="@android:drawable/btn_star_big_off" />
+
+        <ImageView
+            android:id="@+id/ibRemoveBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@android:drawable/btn_star_big_on" 
+            android:onClick="onRemoveBookmark" 
+        	android:visibility="gone"
+            />
+
+        <ImageView
+            android:id="@+id/ivYesterday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:onClick="onYesterday"
+            android:src="@android:drawable/ic_media_rew" />
+
+        <TextView
+            android:id="@+id/currentDate"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/ivTomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:onClick="onTomorrow"
+            android:src="@android:drawable/ic_media_ff" />
+
+        <ImageView
+            android:id="@+id/ivMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onMapMode"
+            android:src="@android:drawable/ic_menu_mapmode"
+            android:clickable="false" 
+            />
+
+        </LinearLayout>
+    
+	<ExpandableListView 
+	    android:id="@android:id/list" 
+	    android:layout_width="fill_parent" 
+	    android:layout_height="fill_parent" 
+	    android:drawSelectorOnTop="false" 
+        android:layout_weight="1"
+	    />
+	    
+    <org.osmdroid.views.MapView
+		android:id="@+id/mapview"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:clickable="true"
+    	tilesource="CloudMadeStandardTiles"
+    	style="1"
+        android:layout_weight="1"
+        android:visibility="gone"
+		/>
+
+</LinearLayout>
