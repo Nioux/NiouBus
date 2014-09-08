@@ -1,0 +1,25 @@
+﻿<vm:HorairesViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:NiouBusEngine;assembly=NiouBusEngine"
+    Refs="Valeur de propriété d'un texte d'exemple"
+    Arret="arrêt gare lille flandres"
+    LigneNom="ligne 12"
+    Vers="vers marcq-en-baroeul"
+    Heure="maj : 10:20"
+    >
+
+    <vm:HorairesViewModel.Items>
+        <vm:HoraireViewModel Destination="conception une" Duree="Maecenas praesent accumsan bibendum" />
+        <vm:HoraireViewModel Destination="conception deux" Duree="Dictumst eleifend facilisi faucibus" />
+        <vm:HoraireViewModel Destination="conception trois" Duree="Habitant inceptos interdum lobortis" />
+        <vm:HoraireViewModel Destination="conception quatre" Duree="Nascetur pharetra placerat pulvinar" />
+        <vm:HoraireViewModel Destination="conception cinq" Duree="Sagittis senectus sociosqu suscipit" />
+        <vm:HoraireViewModel Destination="conception six" Duree="Torquent ultrices vehicula volutpat" />
+    </vm:HorairesViewModel.Items>
+
+    <vm:HorairesViewModel.Messages>
+        <vm:MessageViewModel Titre="titre du message" Texte="texte du message" />
+    </vm:HorairesViewModel.Messages>
+
+</vm:HorairesViewModel>

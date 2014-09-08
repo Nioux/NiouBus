@@ -1,0 +1,108 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NiouBusWP8.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:local="using:NiouBusWP8"
+    xmlns:nioubus="clr-namespace:NiouBusWP8"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <phone:Pivot>
+            <phone:Pivot.Title>
+                <Grid Background="{StaticResource ThemeAccentBrush}" Width="{Binding ActualWidth, ElementName=LayoutRoot}" Margin="-24,-20,0,0">
+                    <TextBlock Foreground="White" Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Margin="10"/>
+                </Grid>
+            </phone:Pivot.Title>
+            <phone:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Foreground="{StaticResource ThemeAccentBrush}" />
+                </DataTemplate>
+            </phone:Pivot.HeaderTemplate>
+            <phone:PivotItem Header="thème">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="arrière-plan" Margin="13,0,0,0"></TextBlock>
+                    <toolkit:ListPicker x:Name="lpTheme" SelectionChanged="lpTheme_SelectionChanged">
+                        <toolkit:ListPickerItem Content="clair" Foreground="Black" Background="White"/>
+                        <toolkit:ListPickerItem Content="sombre" Foreground="White" Background="Black"/>
+                    </toolkit:ListPicker>
+
+                    <!--<TextBlock Text="avant-plan" Margin="13,0,0,0"></TextBlock>
+                    <nioubus:ColorPickerControl SelectedColor="{StaticResource ThemeForegroundColor}" x:Name="cpForeground" ValueChanged="cpForeground_ValueChanged" FontFamily="Portable User Interface" />
+
+                    <TextBlock Text="chrome" Margin="13,0,0,0"></TextBlock>
+                    <nioubus:ColorPickerControl SelectedColor="{StaticResource ThemeChromeColor}" x:Name="cpChrome" ValueChanged="cpChrome_ValueChanged" FontFamily="Portable User Interface" />
+-->
+                    <TextBlock Text="accentuation" Margin="13,0,0,0"></TextBlock>
+                    <nioubus:ColorPickerControl SelectedColor="{StaticResource ThemeAccentColor}" x:Name="cpAccent" ValueChanged="cpAccent_ValueChanged" FontFamily="Portable User Interface" />
+
+                </StackPanel>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="à propos de...">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Assets/icon.main.png" Height="150" />
+                    <!--<TextBlock Foreground="{StaticResource ThemeAccentBrush}" TextAlignment="Center">
+                        <Run Text="version" />
+                        <Run Text="{Binding}" />
+                    </TextBlock>-->
+                    <TextBlock></TextBlock>
+                    <TextBlock TextAlignment="Center" TextWrapping="Wrap">NiouBus utilise des icônes de la librairie Templarian WindowsIcons créée par Austin Andrews</TextBlock>
+                    <HyperlinkButton TargetName="_blank" FontSize="18" NavigateUri="https://github.com/Templarian/WindowsIcons/">https://github.com/Templarian/WindowsIcons/</HyperlinkButton>
+                    <TextBlock></TextBlock>
+                    <TextBlock TextAlignment="Center" TextWrapping="Wrap">De nombreuses améliorations sont prévues, mais comme je ne peux pas répondre aux commentaires du Store et que je ne dispose pas d'un temps important à y consacrer, il est plus simple de passer par la page Facebook de l'application pour qu'on discute des priorités ;-)</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <HyperlinkButton TargetName="_blank" Width="76" Height="76" NavigateUri="https://www.facebook.com/nioubus">
+                            <HyperlinkButton.Background>
+                                <ImageBrush ImageSource="/Assets/appbar/dark/appbar.social.facebook.png"/>
+                            </HyperlinkButton.Background>
+                        </HyperlinkButton>
+                        <HyperlinkButton TargetName="_blank" FontSize="18" NavigateUri="https://www.facebook.com/nioubus">https://www.facebook.com/nioubus</HyperlinkButton>
+                        <HyperlinkButton TargetName="_blank" Width="76" Height="76" NavigateUri="https://www.facebook.com/nioubus">
+                            <HyperlinkButton.Background>
+                                <ImageBrush ImageSource="/Assets/appbar/light/appbar.social.facebook.png"/>
+                            </HyperlinkButton.Background>
+                        </HyperlinkButton>
+                    </StackPanel>
+                </StackPanel>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar x:Name="appbar" BackgroundColor="{StaticResource ThemeBackgroundColor}" ForegroundColor="{StaticResource ThemeAccentColor}" Mode="Default" Opacity="1" IsMenuEnabled="True" IsVisible="True">
+            <shell:ApplicationBarIconButton IconUri="/Assets/appbar/dark/appbar.pin.png" Text="épingler" Click="appBarButtonPin_Click"  />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

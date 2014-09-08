@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+  <DefaultLanguage xmlns="" code="fr-FR" />
+  <Languages xmlns="">
+    <Language code="fr-FR" />
+  </Languages>
+  <App xmlns="" ProductID="{5bd522cc-a226-4ad2-985a-215ec0883c49}" Title="NiouBus" RuntimeType="Silverlight" Version="1.0.0.1" Genre="apps.normal" Author="Yan Maniez" Description="Affichage des horaires de bus, métro, tram, ..." Publisher="NiouBus" PublisherID="{6fa3d869-0283-4afa-99db-05bc7511b6e1}">
+    <IconPath IsRelative="true" IsResource="false">Assets\NiouBus336.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_MAP" />
+      <Capability Name="ID_CAP_LOCATION" />
+      <Capability Name="ID_CAP_SPEECH_RECOGNITION" />
+      <Capability Name="ID_CAP_MICROPHONE" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="Pages\MainPage.xaml" />
+      <!--
+      <DefaultTask Name="_default" NavigationPage="SearchExtras?ProductName=Baby Bottle&amp;Category=Bing_Products_Baby_and_Nursery" />
+      http://code.msdn.microsoft.com/Search-Extensibility-Sample-813ebeba/sourcecode?fileId=62805&pathId=1915261534
+      -->
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="NiouBusTRToken" TaskName="_default">
+        <TemplateFlip>
+          <SmallImageURI IsRelative="true" IsResource="false">Assets\NiouBus159.png</SmallImageURI>
+          <Count>0</Count>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\NiouBus336.png</BackgroundImageURI>
+          <Title>
+          </Title>
+          <BackContent>
+          </BackContent>
+          <BackBackgroundImageURI>
+          </BackBackgroundImageURI>
+          <BackTitle>
+          </BackTitle>
+          <DeviceLockImageURI>
+          </DeviceLockImageURI>
+          <HasLarge>
+          </HasLarge>
+        </TemplateFlip>
+      </PrimaryToken>
+    </Tokens>
+    <ScreenResolutions>
+      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
+      <ScreenResolution Name="ID_RESOLUTION_WXGA" />
+      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
+    </ScreenResolutions>
+  </App>
+</Deployment>

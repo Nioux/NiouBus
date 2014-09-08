@@ -1,0 +1,26 @@
+﻿<vm:ArretsViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:NiouBusEngine;assembly=NiouBusEngine"
+    xmlns:timeo="clr-namespace:NiouBusEngine.Timeo;assembly=NiouBusEngine"
+    Ligne="ligne 12"
+    Sens="haubourdin">
+
+    <vm:ArretsViewModel.xmldata>
+        <timeo:xmldata>
+            <timeo:xmldata.als>
+                <timeo:als>
+                    <timeo:als.arret>
+                        <timeo:arret nom="rue de l'église" code="truc" />
+                    </timeo:als.arret>
+                </timeo:als>
+                <timeo:als>
+                    <timeo:als.arret>
+                        <timeo:arret nom="gare lille flandres" />
+                    </timeo:als.arret>
+                </timeo:als>
+            </timeo:xmldata.als>
+        </timeo:xmldata>
+    </vm:ArretsViewModel.xmldata>
+
+</vm:ArretsViewModel>

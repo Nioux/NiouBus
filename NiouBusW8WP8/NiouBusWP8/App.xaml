@@ -1,0 +1,39 @@
+﻿<Application
+    x:Class="NiouBusWP8.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:nioubus="clr-namespace:NiouBusWP8"
+    >
+
+    <!--Ressources d'applications-->
+    <Application.Resources>
+        <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
+        <Brush x:Key="ThemeBackgroundBrush">#FFFFFFFF</Brush>
+        <Color x:Key="ThemeForegroundColor">#FF000000</Color>
+        <Brush x:Key="ThemeForegroundBrush">#FF000000</Brush>
+        <Color x:Key="ThemeChromeColor">#FF000000</Color>
+        <Brush x:Key="ThemeChromeBrush">#FF000000</Brush>
+        <Color x:Key="ThemeAccentColor">#FFFF0000</Color>
+        <Brush x:Key="ThemeAccentBrush">#FFFF0000</Brush>
+
+        <!--<StaticResource x:Key="truc" ResourceKey="ThemeBackgroundColor" />-->
+
+        <Brush x:Key="EmeraldBrush">#FF008A00</Brush>
+        <Brush x:Key="CobaltBrush">#FF0050EF</Brush>
+        <Brush x:Key="AmberBrush">#FFF0A30A</Brush>
+        <Brush x:Key="SteelBrush">#FF647687</Brush>
+        <Brush x:Key="MauveBrush">#FF76608A</Brush>
+        <Brush x:Key="TaupeBrush">#FF87794E</Brush>
+        <local:LocalizedStrings xmlns:local="clr-namespace:NiouBusWP8" x:Key="LocalizedStrings"/>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Objet requis qui gère les événements de durée de vie pour l'application-->
+        <shell:PhoneApplicationService
+            Launching="Application_Launching" Closing="Application_Closing"
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

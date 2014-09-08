@@ -1,0 +1,11 @@
+﻿<vm:LineListViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:NiouBusEngine;assembly=NiouBusEngine"
+    xmlns:navitia="clr-namespace:NiouBusEngine.Navitia;assembly=NiouBusEngine"
+    Server="xxxx.com">
+    <vm:LineListViewModel.Items>
+        <vm:LineViewModel Direction="test" DirectionName="" LineCode="" LineExternalCode="" LineName="" />
+    </vm:LineListViewModel.Items>
+
+</vm:LineListViewModel>

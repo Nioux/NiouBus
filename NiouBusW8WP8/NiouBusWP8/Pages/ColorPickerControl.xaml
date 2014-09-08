@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="NiouBusWP8.ColorPickerControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="90" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <toolkit:ListPicker x:Name="ColorPicker" ItemsSource="{Binding Colors}" SelectionChanged="ColorPicker_SelectionChanged">
+            <toolkit:ListPicker.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding ColorBrush}" Margin="2, 2, 0 0" Width="26" Height="26" />
+                        <TextBlock Text="{Binding Text}" Margin="4 0 0 0" FontFamily="Portable User Interface"/>
+                    </StackPanel>
+                </DataTemplate>
+            </toolkit:ListPicker.ItemTemplate>
+            <toolkit:ListPicker.FullModeItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="16 21 0 20">
+                        <Rectangle Fill="{Binding ColorBrush}" Margin="2, 2, 0 0" Width="26" Height="26" />
+                        <TextBlock Text="{Binding Text}" Margin="4 0 0 0" FontSize="43" FontFamily="{StaticResource PhoneFontFamilyLight}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </toolkit:ListPicker.FullModeItemTemplate>
+        </toolkit:ListPicker>
+    </Grid>
+</UserControl>

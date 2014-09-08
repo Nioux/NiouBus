@@ -1,0 +1,99 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NiouBusWP8.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:local="using:NiouBusWP8"
+    xmlns:nioubus="clr-namespace:NiouBusWP8"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" 
+    Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True"
+    >
+
+    <phone:PhoneApplicationPage.Resources>
+        <nioubus:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+    </phone:PhoneApplicationPage.Resources>
+
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <phone:Pivot x:Name="pivot" FontFamily="Portable User Interface">
+            <phone:Pivot.Title>
+                <Grid Background="{StaticResource ThemeAccentBrush}" Width="{Binding ActualWidth, ElementName=LayoutRoot}" Margin="-24,-20,0,0">
+                    <TextBlock Foreground="White" Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Margin="10"/>
+                </Grid>
+            </phone:Pivot.Title>
+            <phone:PivotItem>
+
+                <ListBox Padding="0,0,0,0" ItemsSource="{Binding LinkList}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <toolkit:WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <toolkit:HubTile 
+                                toolkit:TiltEffect.IsTiltEnabled="True"
+                                Size="Medium" 
+                                Background="{Binding Background,Converter={StaticResource ColorToBrushConverter}}"
+                                Source="{Binding Image}" 
+                                Title="{Binding Title}" 
+                                Message="{Binding Line1}"
+                                Tag="{Binding Uri}" 
+                                Margin="5" 
+                                Tap="tile_Tap" FontFamily="Portable User Interface">
+                                <toolkit:ContextMenuService.ContextMenu>
+                                    <toolkit:ContextMenu x:Name="menu">
+                                        <toolkit:MenuItem Header="épingler sur l'écran d'accueil" Tap="tile_PinTap" />
+                                        <toolkit:MenuItem Header="monter" Tap="tile_MoveUpTap" />
+                                        <toolkit:MenuItem Header="descendre" Tap="tile_MoveDownTap" />
+                                        <toolkit:MenuItem Header="supprimer" Tap="tile_DeleteTap" />
+                                    </toolkit:ContextMenu>
+                                </toolkit:ContextMenuService.ContextMenu>
+                            </toolkit:HubTile>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="1" BackgroundColor="{StaticResource ThemeBackgroundColor}" ForegroundColor="{StaticResource ThemeAccentColor}" Mode="Minimized" IsMenuEnabled="True" IsVisible="True">
+            <shell:ApplicationBarIconButton IconUri="/Assets/appbar/dark/appbar.transit.connection.png" Text="réseaux" Click="tile_NetworksTap" />
+            <shell:ApplicationBarIconButton IconUri="/Assets/appbar/dark/appbar.settings.png" Text="paramètres" Click="tile_SettingsTap" />
+            <!--<shell:ApplicationBarIconButton IconUri="/Assets/appbar/dark/appbar.question.png" Text="à propos de..." />-->
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

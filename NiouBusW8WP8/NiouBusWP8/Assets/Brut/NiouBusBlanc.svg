@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="1024"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="NiouBusBlanc.svg"
+   inkscape:export-filename="C:\Users\Nioux\Desktop\NiouBus512.png"
+   inkscape:export-xdpi="45"
+   inkscape:export-ydpi="45">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient5200"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop5202" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="490.61316"
+     inkscape:cy="601.14433"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="716"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-28.349635)"
+     fill-rule="evenodd">
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero"
+       d="m 512,240.34964 c -165.68543,0 -300,134.31458 -300,300 0,165.68543 134.31457,300 300,300 165.68543,0 300,-134.31457 300,-300 0,-165.68542 -134.31457,-300 -300,-300 z m 0,77.22773 c 147.64048,0 267.32673,99.73854 267.32673,222.77227 0,123.03374 -119.68625,222.77229 -267.32673,222.77229 -147.64048,0 -267.32673,-99.73855 -267.32673,-222.77229 0,-123.03373 119.68625,-222.77228 267.32673,-222.77228 z"
+       id="path2985"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:104.69857025px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:BorisBlackBloxx;-inkscape-font-specification:BorisBlackBloxx"
+       x="394.77451"
+       y="435.37784"
+       id="text2999"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0026788,0.99732836)"><tspan
+         sodipodi:role="line"
+         id="tspan3001"
+         x="394.77451"
+         y="435.37784">niou</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:188.62219238px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:BorisBlackBloxx;-inkscape-font-specification:BorisBlackBloxx"
+       x="324.20654"
+       y="582.17969"
+       id="text3003"
+       sodipodi:linespacing="125%"
+       transform="scale(0.94004911,1.0637742)"><tspan
+         sodipodi:role="line"
+         id="tspan3005"
+         x="324.20654"
+         y="582.17969">BUS</tspan></text>
+  </g>
+</svg>

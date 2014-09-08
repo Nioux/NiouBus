@@ -1,0 +1,106 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NiouBusWP8.DepartureBoardListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:local="clr-namespace:NiouBusWP8"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/DepartureBoardListSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <UserControl.Resources>
+        <local:NotaConverter x:Key="NotaConverter" />
+        <local:LengthToVisibilityConverter x:Key="LengthToVisibilityConverter" />
+        <local:ToLowerCaseConverter x:Key="ToLowerCaseConverter" />
+        <local:ValueConverterGroup x:Key="NotaToLowerCaseConverter">
+            <local:NotaConverter/>
+            <local:ToLowerCaseConverter/>
+        </local:ValueConverterGroup>
+    </UserControl.Resources>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="True" Text="Chargement..." IsVisible="{Binding  IsDataLoading}" />
+    </shell:SystemTray.ProgressIndicator>
+
+    <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Contrôle Pivot-->
+        <phone:Pivot>
+            <phone:Pivot.Title>
+                <Grid Background="{StaticResource ThemeAccentBrush}" Width="{Binding ActualWidth, ElementName=LayoutRoot}" Margin="-24,-20,0,0">
+                    <TextBlock Foreground="White" Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Margin="10"/>
+                    <toolkit:DatePicker Foreground="White" Margin="0,-10,0,0" x:Name="datePicker"  Value="{Binding Date}" HorizontalAlignment="Right" ValueStringFormat="{}{0:dd MMMM yyyy}" BorderThickness="0" ValueChanged="DatePicker_ValueChanged" Height="50" VerticalAlignment="Top"/>
+                </Grid>
+            </phone:Pivot.Title>
+            <phone:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Foreground="{StaticResource ThemeAccentBrush}" />
+                </DataTemplate>
+            </phone:Pivot.HeaderTemplate>
+
+            <!--Élément un de tableau croisé dynamique-->
+            <phone:PivotItem Header="horaires">
+                <Grid>
+                    <TextBlock Text="{Binding Nota, Converter={StaticResource NotaToLowerCaseConverter}}" Visibility="{Binding Nota, Converter={StaticResource LengthToVisibilityConverter}}" FontSize="25">
+                        
+                    </TextBlock>
+                    <phone:LongListSelector ItemsSource="{Binding Items}" >
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel toolkit:TiltEffect.IsTiltEnabled="True">
+                                    <TextBlock Text="{Binding Time}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="{StaticResource ThemeAccentBrush}"/>
+                                    <!--<TextBlock Text="{Binding LineName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>-->
+                                    <TextBlock Text="{Binding RouteName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Élément deux de tableau croisé dynamique-->
+            <phone:PivotItem Header="détails">
+                <Grid/>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar BackgroundColor="{StaticResource ThemeBackgroundColor}" ForegroundColor="{StaticResource ThemeAccentColor}" Mode="Default" Opacity="1" IsMenuEnabled="True" IsVisible="True">
+            <!--<shell:ApplicationBarIconButton Click="appBarButtonRefresh_Click" IconUri="/Assets/appbar/dark/appbar.refresh.png" Text="raffraichir" />-->
+            <shell:ApplicationBarIconButton Click="appBarButtonPrevious_Click" IconUri="/Assets/appbar/dark/appbar.navigate.previous.png" Text="hier" />
+            <shell:ApplicationBarIconButton Click="appBarButtonNext_Click" IconUri="/Assets/appbar/dark/appbar.navigate.next.png" Text="demain" />
+            <shell:ApplicationBarIconButton Click="appBarButtonPin_Click" IconUri="/Assets/appbar/dark/appbar.pin.png" Text="épingler" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

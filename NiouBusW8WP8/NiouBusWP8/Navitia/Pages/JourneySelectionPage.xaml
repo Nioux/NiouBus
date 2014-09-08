@@ -1,0 +1,96 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NiouBusWP8.JourneySelectionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:maptk="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:local="clr-namespace:NiouBusWP8"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <UserControl.Resources>
+        <local:CoordConverter x:Key="CoordConverter" />
+    </UserControl.Resources>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="True" Text="Chargement..." IsVisible="{Binding  IsDataLoading}" />
+    </shell:SystemTray.ProgressIndicator>
+
+    <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Contrôle Pivot-->
+        <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
+            <!--Élément un de tableau croisé dynamique-->
+            <phone:PivotItem Header="départ">
+                <maps:Map x:Name="mapItemsSource" ZoomLevel="15" CenterChanged="mapItemsSource_CenterChanged">
+                    <maptk:MapExtensions.Children>
+                        <maptk:UserLocationMarker x:Name="markerUserLocationSource"/>
+                        <maptk:MapItemsControl>
+                            <maptk:MapItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <maptk:Pushpin GeoCoordinate="{Binding Coord, Converter={StaticResource CoordConverter}}" Content="{Binding StopAreaName}" Tap="plushpinSource_Tap" FontFamily="Portable User Interface"/>
+                                </DataTemplate>
+                            </maptk:MapItemsControl.ItemTemplate>
+                        </maptk:MapItemsControl>
+                    </maptk:MapExtensions.Children>
+                </maps:Map>
+            </phone:PivotItem>
+
+            <!--Élément deux de tableau croisé dynamique-->
+            <phone:PivotItem Header="arrivée">
+                <maps:Map x:Name="mapItemsDestination" ZoomLevel="15" CenterChanged="mapItemsDestination_CenterChanged">
+                    <maptk:MapExtensions.Children>
+                        <maptk:UserLocationMarker x:Name="markerUserLocationDestination"/>
+                        <maptk:MapItemsControl>
+                            <maptk:MapItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <maptk:Pushpin GeoCoordinate="{Binding Coord, Converter={StaticResource CoordConverter}}" Content="{Binding StopAreaName}" Tap="plushpinDestination_Tap"/>
+                                </DataTemplate>
+                            </maptk:MapItemsControl.ItemTemplate>
+                        </maptk:MapItemsControl>
+                    </maptk:MapExtensions.Children>
+                </maps:Map>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="True" IsVisible="True">
+            <shell:ApplicationBarIconButton Click="appBarButtonMyPosition_Click" IconUri="/Assets/appbar/dark/appbar.crosshair.png" Text="ma position" />
+            <shell:ApplicationBarIconButton Click="appBarButtonAddress_Click" IconUri="/Assets/appbar/dark/appbar.interface.textbox.png" Text="par adresse" />
+            <shell:ApplicationBarIconButton Click="appBarButtonContacts_Click" IconUri="/Assets/appbar/dark/appbar.people.multiple.magnify.png" Text="mes contacts" />
+            <shell:ApplicationBarIconButton Click="appBarButtonRefresh_Click" IconUri="/Assets/appbar/dark/appbar.refresh.png" Text="raffraichir" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

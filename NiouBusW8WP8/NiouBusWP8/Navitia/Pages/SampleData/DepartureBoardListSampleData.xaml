@@ -1,0 +1,10 @@
+﻿<vm:DepartureBoardListViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:NiouBusEngine;assembly=NiouBusEngine"
+    xmlns:navitia="clr-namespace:NiouBusEngine.Navitia;assembly=NiouBusEngine"
+    >
+    <vm:DepartureBoardListViewModel.Nota>Terminus</vm:DepartureBoardListViewModel.Nota>
+    <vm:DepartureBoardListViewModel.Date>04/04/2014</vm:DepartureBoardListViewModel.Date>
+
+</vm:DepartureBoardListViewModel>
