@@ -76,7 +76,7 @@ namespace NiouBusEngine
 
             var xd = await Navitia.NavitiaTools.GetAsync<Navitia.ActionLineList>(
                 Server: Server,
-                Action: "LineList",
+                Action: Navitia.Action.LineList,
                 NetworkExternalCode: Network,
                 StopAreaExternalCode: StopAreaExternalCode);
             if (xd == null)

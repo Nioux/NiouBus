@@ -79,9 +79,9 @@ namespace NiouBusEngine
 
             var xd = await Navitia.NavitiaTools.GetAsync<Navitia.ActionProximityList>(
                 Server: Server,
-                Action: "ProximityList",
+                Action: Navitia.Action.ProximityList,
                 NetworkExternalCode: Network,
-                Type: "StopArea",
+                Type: Navitia.ProximityListType.StopArea,
                 X: Coord.CoordXString,
                 Y: Coord.CoordYString);
             if (xd == null)

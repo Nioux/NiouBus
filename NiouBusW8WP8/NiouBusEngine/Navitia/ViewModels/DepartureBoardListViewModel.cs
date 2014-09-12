@@ -135,7 +135,7 @@ namespace NiouBusEngine
 
             var xd = await Navitia.NavitiaTools.GetAsync<Navitia.DepartureBoardList>(
                 Server: Server,
-                Action: "DepartureBoard",
+                Action: Navitia.Action.DepartureBoard,
                 NetworkExternalCode: Network,
                 LineExternalCode: LineExternalCode,
                 Sens: Direction,
@@ -177,13 +177,13 @@ namespace NiouBusEngine
             }
 
             Navitia.Line domline = null;
-            if (xd.LineList != null && xd.LineList.Length > 0)
+            if (xd.LineList != null && xd.LineList.Count > 0)
             {
                 domline = xd.LineList[0];
             }
 
             Navitia.StopPoint sl = null;
-            if (xd.StopPointList != null && xd.StopPointList.Length > 0)
+            if (xd.StopPointList != null && xd.StopPointList.Count > 0)
             {
                 sl = xd.StopPointList[0];
             }
@@ -209,7 +209,7 @@ namespace NiouBusEngine
                 }
             }
 
-            if (xd.LineList != null && xd.LineList.Length > 0)
+            if (xd.LineList != null && xd.LineList.Count > 0)
             {
                 LineName = xd.LineList[0].LineCode.ToLower();
             }

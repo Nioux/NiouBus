@@ -64,7 +64,7 @@ namespace NiouBusEngine
         public void Load(Stream stream)
         {
             Networks.Clear();
-            var servers = Tools.GetXmlData<Navitia.ServerList>(stream);
+            var servers = stream.XmlDeserializeTo<Navitia.ServerList>();
             if (servers != null && servers.NetworkList != null)
             {
                 foreach (var networklist in servers.NetworkList)

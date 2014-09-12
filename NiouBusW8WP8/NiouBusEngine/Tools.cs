@@ -11,44 +11,6 @@ namespace NiouBusEngine
 {
     public class Tools
     {
-        public static async Task<T> GetXmlDataAsync<T>(Stream responseStream) where T : class
-        {
-            using (StreamReader sr = new StreamReader(responseStream))
-            {
-                string received = await sr.ReadToEndAsync();
-
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                byte[] byteArray = Encoding.UTF8.GetBytes(received);
-                using (MemoryStream stream = new MemoryStream(byteArray))
-                {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        return serializer.Deserialize(reader) as T;
-                    }
-                }
-            }
-        }
-
-        public static T GetXmlData<T>(Stream responseStream) where T : class
-        {
-            using (StreamReader sr = new StreamReader(responseStream))
-            {
-                Task<string> task = sr.ReadToEndAsync();
-                Task.WaitAll(task);
-                string received = task.Result;
-
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                byte[] byteArray = Encoding.UTF8.GetBytes(received);
-                using (MemoryStream stream = new MemoryStream(byteArray))
-                {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        return serializer.Deserialize(reader) as T;
-                    }
-                }
-            }
-        }
-
         public static async Task<T> GetXmlDataAsync<T>(String url, bool refresh) where T : class
         {
             try
@@ -67,29 +29,11 @@ namespace NiouBusEngine
                         {
                             using (Stream responseStream = await response.Content.ReadAsStreamAsync())
                             {
-                                return await GetXmlDataAsync<T>(responseStream);
+                                return responseStream.XmlDeserializeTo<T>();
                             }
                         }
                     }
                 }
-
-                //HttpWebRequest request = WebRequest.CreateHttp(url);
-                //if (refresh)
-                //{
-                    
-                //    if (request.Headers == null)
-                //    {
-                //        request.Headers = new WebHeaderCollection();
-                //    }
-                //    request.Headers[HttpRequestHeader.IfModifiedSince] = DateTime.UtcNow.ToString();
-                //}
-                //using (WebResponse responseObject = await Task<WebResponse>.Factory.FromAsync(request.BeginGetResponse, request.EndGetResponse, request))
-                //{
-                //    using (Stream responseStream = responseObject.GetResponseStream())
-                //    {
-                //        return await GetXmlDataAsync<T>(responseStream);
-                //    }
-                //}
             }
             catch(Exception ex)
             {
@@ -97,14 +41,5 @@ namespace NiouBusEngine
                 return null;
             }
         }
-        //public static Stream GetServerListStream(string countryIsoCode2ch)
-        //{
-        //    var flagname = "Full.DLL.Name.CountryFlags.{0}.png";
-        //    var rs = Assembly.GetExecutingAssembly().GetManifestResourceStream(
-        //               string.Format(flagname, countryIsoCode2ch));
-
-        //    return rs;
-        //}
-
     }
 }
