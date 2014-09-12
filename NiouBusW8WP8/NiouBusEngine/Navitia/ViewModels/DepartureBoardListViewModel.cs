@@ -23,7 +23,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Date, value);
+                Set(ref _Date, value);
             }
         }
 
@@ -36,7 +36,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Server, value);
+                Set(ref _Server, value);
             }
         }
 
@@ -49,7 +49,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Network, value);
+                Set(ref _Network, value);
             }
         }
 
@@ -62,7 +62,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Nota, value);
+                Set(ref _Nota, value);
             }
         }
 
@@ -75,9 +75,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _LineExternalCode, value);
-                //_LineExternalCode = value;
-                //NotifyPropertyChanged("LineExternalCode");
+                Set(ref _LineExternalCode, value);
             }
         }
 
@@ -90,9 +88,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Direction, value);
-                //_Direction = value;
-                //NotifyPropertyChanged("Direction");
+                Set(ref _Direction, value);
             }
         }
 
@@ -105,9 +101,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _StopAreaExternalCode, value);
-                //_StopAreaExternalCode = value;
-                //NotifyPropertyChanged("StopAreaExternalCode");
+                Set(ref _StopAreaExternalCode, value);
             }
         }
 
@@ -120,15 +114,12 @@ namespace NiouBusEngine
             }
             private set 
             {
-                SetProperty(ref _IsDataLoading, value);
-                //_IsDataLoading = value;
-                //NotifyPropertyChanged("IsDataLoading");
+                Set(ref _IsDataLoading, value);
             }
         }
 
         public async Task LoadDataAsync(bool refresh)
         {
-            // Exemple de données ; remplacer par des données réelles
             this.IsDataLoading = true;
 
             var now = Date;
@@ -155,14 +146,9 @@ namespace NiouBusEngine
                 {
                     this.Items.Add(new StopViewModel()
                     {
-                        Hour = stop.StopTime != null ? stop.StopTime.Hour : stop.DepartureTime.Hour,
-                        Minute = stop.StopTime != null ? stop.StopTime.Minute : stop.DepartureTime.Minute,
+                        Hour = stop.StopOrDepartureTime.Hour,
+                        Minute = stop.StopOrDepartureTime.Minute,
                         RouteName = stop.Route.RouteName.ToLower(),
-                        //LineExternalCode = line.LineExternalCode,
-                        //LineCode = line.LineCode.ToLower(),
-                        //LineName = line.LineName.ToLower(),
-                        //Direction = "1",
-                        //DirectionName = line.Forward.ForwardName.ToLower(),
                     });
                 }
             }
@@ -183,9 +169,9 @@ namespace NiouBusEngine
             }
 
             Navitia.StopPoint sl = null;
-            if (xd.StopPointList != null && xd.StopPointList.Count > 0)
+            if (xd.StopPointList != null && xd.StopPointList.StopPoint.Count > 0)
             {
-                sl = xd.StopPointList[0];
+                sl = xd.StopPointList.StopPoint[0];
             }
             if (sl != null)
             {
@@ -227,7 +213,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _DirectionName, value);
+                Set(ref _DirectionName, value);
             }
         }
 
@@ -240,7 +226,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _StopPointName, value);
+                Set(ref _StopPointName, value);
             }
         }
 
@@ -253,7 +239,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _LineName, value);
+                Set(ref _LineName, value);
             }
         }
     }

@@ -22,34 +22,34 @@ namespace NiouBusEngine
         public ObservableCollection<HoraireViewModel> Items { get; private set; }
 
         private string _Refs = null;
-        public string Refs { get { return _Refs; } set { SetProperty(ref _Refs, value); } } 
+        public string Refs { get { return _Refs; } set { Set(ref _Refs, value); } } 
         
         private string _Arret = null;
-        public string Arret { get { return _Arret; } set { SetProperty(ref _Arret, value); } } 
+        public string Arret { get { return _Arret; } set { Set(ref _Arret, value); } } 
         
         private string _LigneNom = null;
-        public string LigneNom { get { return _LigneNom; } set { SetProperty(ref _LigneNom, value); } } 
+        public string LigneNom { get { return _LigneNom; } set { Set(ref _LigneNom, value); } } 
         
         private string _Vers = null;
-        public string Vers { get { return _Vers; } set { SetProperty(ref _Vers, value); } } 
+        public string Vers { get { return _Vers; } set { Set(ref _Vers, value); } } 
         
         private string _Code = null;
-        public string Code { get { return _Code; } set { SetProperty(ref _Code, value); } } 
+        public string Code { get { return _Code; } set { Set(ref _Code, value); } } 
         
         private string _Ligne = null;
-        public string Ligne { get { return _Ligne; } set { SetProperty(ref _Ligne, value); } } 
+        public string Ligne { get { return _Ligne; } set { Set(ref _Ligne, value); } } 
         
         private string _Sens = null;
-        public string Sens { get { return _Sens; } set { SetProperty(ref _Sens, value); } } 
+        public string Sens { get { return _Sens; } set { Set(ref _Sens, value); } } 
 
         public ObservableCollection<MessageViewModel> Messages { get; private set; }
 
         private bool _IsDataLoading = true;
-        public bool IsDataLoading { get { return _IsDataLoading; } private set { SetProperty(ref _IsDataLoading, value); NotifyPropertyChanged("IsDataLoaded"); } } 
+        public bool IsDataLoading { get { return _IsDataLoading; } private set { Set(ref _IsDataLoading, value); NotifyPropertyChanged("IsDataLoaded"); } } 
         public bool IsDataLoaded { get { return !IsDataLoading; } private set { IsDataLoading = !value; } } 
 
         private string _Heure = null;
-        public string Heure { get { return _Heure; } set { SetProperty(ref _Heure, value); } } 
+        public string Heure { get { return _Heure; } set { Set(ref _Heure, value); } } 
 
         public async Task<bool> LoadDataAsync(bool refresh)
         {

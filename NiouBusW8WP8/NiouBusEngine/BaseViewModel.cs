@@ -15,13 +15,14 @@ namespace NiouBusEngine
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
+
+        protected bool Set<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
         {
             if (Equals(storage, value)) return false;
 
             storage = value;
             NotifyPropertyChanged(propertyName);
-            
+
             return true;
         }
 

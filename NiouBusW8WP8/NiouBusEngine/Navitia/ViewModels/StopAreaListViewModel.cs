@@ -22,7 +22,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Server, value);
+                Set(ref _Server, value);
             }
         }
 
@@ -35,7 +35,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Network, value);
+                Set(ref _Network, value);
             }
         }
 
@@ -48,9 +48,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _LineExternalCode, value);
-                //_LineExternalCode = value;
-                //NotifyPropertyChanged("LineExternalCode");
+                Set(ref _LineExternalCode, value);
             }
         }
 
@@ -63,9 +61,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _StopAreaExternalCode, value);
-                //_StopAreaExternalCode = value;
-                //NotifyPropertyChanged("StopAreaExternalCode");
+                Set(ref _StopAreaExternalCode, value);
             }
         }
 
@@ -78,15 +74,12 @@ namespace NiouBusEngine
             }
             private set 
             {
-                SetProperty(ref _IsDataLoading, value);
-                //_IsDataLoading = value;
-                //NotifyPropertyChanged("IsDataLoading");
+                Set(ref _IsDataLoading, value);
             }
         }
 
         public async Task LoadDataAsync(bool refresh)
         {
-            // Exemple de données ; remplacer par des données réelles
             this.IsDataLoading = true;
 
             var xd = await Navitia.NavitiaTools.GetAsync<Navitia.ActionStopAreaList>(

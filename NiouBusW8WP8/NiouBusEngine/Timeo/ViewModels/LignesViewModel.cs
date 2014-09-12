@@ -20,13 +20,13 @@ namespace NiouBusEngine
         public string Ville { get; set; }
 
         private ObservableCollection<LigneViewModel> _Items;
-        public ObservableCollection<LigneViewModel> Items { get { return _Items; } private set { SetProperty(ref _Items, value); } }
+        public ObservableCollection<LigneViewModel> Items { get { return _Items; } private set { Set(ref _Items, value); } }
 
         private bool _IsDataLoading = true;
-        public bool IsDataLoading { get { return _IsDataLoading; } private set  { SetProperty(ref _IsDataLoading, value); } }
+        public bool IsDataLoading { get { return _IsDataLoading; } private set  { Set(ref _IsDataLoading, value); } }
 
         private Timeo.xmldata _xmldata = null;
-        public Timeo.xmldata xmldata { get { return _xmldata; } set { SetProperty(ref _xmldata, value); } }
+        public Timeo.xmldata xmldata { get { return _xmldata; } set { Set(ref _xmldata, value); } }
 
         public async Task LoadDataAsync(bool refresh)
         {
@@ -40,20 +40,6 @@ namespace NiouBusEngine
 
             xmldata = xd;
 
-            //this.Items.Clear();
-            //foreach (var als in xd.als)
-            //{
-            //    this.Items.Add(new LigneViewModel()
-            //    {
-            //        Nom = als.ligne.nom,
-            //        Vers = als.ligne.vers,
-            //        Code = als.ligne.code,
-            //        Sens = als.ligne.sens,
-            //        Couleur = als.ligne.couleur
-            //    });
-            //}
-            //this.Items.BubbleSort();
-                        
             this.IsDataLoading = false;
         }
     }

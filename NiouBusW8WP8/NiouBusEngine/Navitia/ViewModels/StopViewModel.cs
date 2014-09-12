@@ -17,9 +17,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Hour, value);
-                //_Hour = value;
-                //NotifyPropertyChanged("Hour");
+                Set(ref _Hour, value);
                 NotifyPropertyChanged("Time");
             }
         }
@@ -33,9 +31,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Minute, value);
-                //_Minute = value;
-                //NotifyPropertyChanged("Minute");
+                Set(ref _Minute, value);
                 NotifyPropertyChanged("Time");
             }
         }
@@ -57,9 +53,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _RouteName, value);
-                //_RouteName = value;
-                //NotifyPropertyChanged("RouteName");
+                Set(ref _RouteName, value);
             }
         }
     }

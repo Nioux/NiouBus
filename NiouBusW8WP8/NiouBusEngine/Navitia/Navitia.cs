@@ -265,21 +265,28 @@ namespace NiouBusEngine.Navitia
         public static String Action = "DepartureBoard";
 
         // attributs
+        [XmlIgnore]
+        private int _MaxHourNumber;
         [XmlAttribute]
-        public int MaxHourNumber { get; set; }
+        public int MaxHourNumber { get { return _MaxHourNumber; } set { Set(ref _MaxHourNumber, value); } }
+
+        [XmlIgnore]
+        private int _MaxMinuteNumber;
         [XmlAttribute]
-        public int MaxMinuteNumber { get; set; }
+        public int MaxMinuteNumber { get { return _MaxMinuteNumber; } set { Set(ref _MaxMinuteNumber, value); } }
 
         // elements
         //[XmlArray("StopList")]
         //[XmlArrayItem("Stop", typeof(Stop))]
         //public Stop[] StopList { get; set; }
-        [XmlElement("StopList")]
+        [XmlElement]
         public StopList StopList { get; set; }
 
-        [XmlArray("StopPointList")]
-        [XmlArrayItem("StopPoint", typeof(StopPoint))]
-        public ObservableCollection<StopPoint> StopPointList { get; set; }
+        //[XmlArray("StopPointList")]
+        //[XmlArrayItem("StopPoint", typeof(StopPoint))]
+        //public ObservableCollection<StopPoint> StopPointList { get; set; }
+        [XmlElement]
+        public StopPointList StopPointList { get; set; }
 
         [XmlArray("LineList")]
         [XmlArrayItem("Line", typeof(Line))]
@@ -1491,25 +1498,36 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public int VehicleIdx { get; set; }
 
+        [XmlElement]
         public StopTime StopTime { get; set; }
+        [XmlElement]
         public StopArrivalTime StopArrivalTime { get; set; }
+        [XmlElement]
         public IsTransday IsTransday { get; set; }
+        [XmlElement]
         public StopPoint StopPoint { get; set; }
+        [XmlElement]
         public DepartureTime DepartureTime { get; set; }
+        [XmlElement]
         public Route Route { get; set; }
+        [XmlElement]
         public StopArea StopArea { get; set; }
 
-        public Time getStopTime()
+        [XmlIgnore]
+        public Time StopOrDepartureTime
         {
-            if (StopTime != null)
+            get
             {
-                return StopTime;
+                if (StopTime != null)
+                {
+                    return StopTime;
+                }
+                if (DepartureTime != null)
+                {
+                    return DepartureTime;
+                }
+                return null;
             }
-            if (DepartureTime != null)
-            {
-                return DepartureTime;
-            }
-            return null;
         }
     }
 
@@ -1617,14 +1635,17 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    //public class StopPointList
-    //{
+    public class StopPointList
+    {
 
-    //    [XmlAttribute]
-    //    public int StopPointCount { get; set; }
+        [XmlAttribute]
+        public int StopPointCount { get; set; }
 
-    //    public List<StopPoint> StopPoint { get; set; }
-    //}
+        [XmlElement]
+        public ObservableCollection<StopPoint> StopPoint { get; set; }
+
+        //public List<StopPoint> StopPoint { get; set; }
+    }
 
 
     public class Summary : BaseViewModel

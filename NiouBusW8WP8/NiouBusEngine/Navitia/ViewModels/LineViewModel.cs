@@ -17,9 +17,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _LineExternalCode, value);
-                //_LineExternalCode = value;
-                //NotifyPropertyChanged("LineExternalCode");
+                Set(ref _LineExternalCode, value);
             }
         }
 
@@ -32,9 +30,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _LineCode, value);
-                //_LineCode = value;
-                //NotifyPropertyChanged("LineCode");
+                Set(ref _LineCode, value);
             }
         }
 
@@ -47,9 +43,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _LineName, value);
-                //_LineName = value;
-                //NotifyPropertyChanged("LineName");
+                Set(ref _LineName, value);
             }
         }
 
@@ -62,9 +56,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Direction, value);
-                //_Direction = value;
-                //NotifyPropertyChanged("Direction");
+                Set(ref _Direction, value);
             }
         }
 
@@ -77,9 +69,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _DirectionName, value);
-                //_DirectionName = value;
-                //NotifyPropertyChanged("DirectionName");
+                Set(ref _DirectionName, value);
             }
         }
 
@@ -93,16 +83,13 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Coord, value);
-                //_Coord = value;
-                //NotifyPropertyChanged("Coord");
+                Set(ref _Coord, value);
             }
         }
 
         public int CompareTo(object obj)
         {
             return LineCode.CompareTo((obj as LineViewModel).LineCode);
-            //throw new NotImplementedException();
         }
 
         public override string ToString()

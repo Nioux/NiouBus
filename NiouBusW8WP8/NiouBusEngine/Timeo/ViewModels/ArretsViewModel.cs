@@ -20,19 +20,19 @@ namespace NiouBusEngine
         //public ObservableCollection<ArretViewModel> Items { get; private set; }
 
         private string _Ligne = null;
-        public string Ligne { get { return _Ligne; } set { SetProperty(ref _Ligne, value); } }
+        public string Ligne { get { return _Ligne; } set { Set(ref _Ligne, value); } }
 
         private string _Sens = null;
-        public string Sens { get { return _Sens; } set { SetProperty(ref _Sens, value); } }
+        public string Sens { get { return _Sens; } set { Set(ref _Sens, value); } }
 
         private string _Arret = null;
-        public string Arret { get { return _Arret; } set { SetProperty(ref _Arret, value); } } 
+        public string Arret { get { return _Arret; } set { Set(ref _Arret, value); } } 
         
         private bool _IsDataLoading = true;
-        public bool IsDataLoading { get { return _IsDataLoading; } private set { SetProperty(ref _IsDataLoading, value); } }
+        public bool IsDataLoading { get { return _IsDataLoading; } private set { Set(ref _IsDataLoading, value); } }
 
         private Timeo.xmldata _xmldata = null;
-        public Timeo.xmldata xmldata { get { return _xmldata; } set { SetProperty(ref _xmldata, value); } }
+        public Timeo.xmldata xmldata { get { return _xmldata; } set { Set(ref _xmldata, value); } }
         
         public async Task LoadDataAsync(bool refresh)
         {
@@ -46,21 +46,6 @@ namespace NiouBusEngine
 
             xmldata = xd;
 
-            //Ligne = xd.als[0].ligne.nom;
-            //Sens = xd.als[0].ligne.vers;
-
-            //this.Items.Clear();
-            //foreach (var als in xd.als)
-            //{
-            //    this.Items.Add(new ArretViewModel() 
-            //    { 
-            //        Arret = als.arret.nom, 
-            //        Ligne = als.ligne.nom,
-            //        Vers = als.ligne.vers, 
-            //        Refs = als.refs 
-            //    });
-            //}
-                        
             this.IsDataLoading = false;
         }
 

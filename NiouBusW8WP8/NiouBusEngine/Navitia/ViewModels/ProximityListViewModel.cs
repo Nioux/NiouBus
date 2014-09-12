@@ -25,7 +25,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Server, value);
+                Set(ref _Server, value);
             }
         }
 
@@ -38,7 +38,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Network, value);
+                Set(ref _Network, value);
             }
         }
 
@@ -51,9 +51,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Coord, value);
-                //_Coord = value;
-                //NotifyPropertyChanged("Coord");
+                Set(ref _Coord, value);
             }
         }
 
@@ -66,15 +64,12 @@ namespace NiouBusEngine
             }
             private set 
             {
-                SetProperty(ref _IsDataLoading, value);
-                //_IsDataLoading = value;
-                //NotifyPropertyChanged("IsDataLoading");
+                Set(ref _IsDataLoading, value);
             }
         }
 
         public async Task<bool> LoadDataAsync(bool refresh)
         {
-            // Exemple de données ; remplacer par des données réelles
             this.IsDataLoading = true;
 
             var xd = await Navitia.NavitiaTools.GetAsync<Navitia.ActionProximityList>(
@@ -98,13 +93,6 @@ namespace NiouBusEngine
                     Coord = proximity.StopArea.Coord,
                     StopAreaExternalCode = proximity.StopArea.StopAreaExternalCode,
                     StopAreaName = proximity.StopArea.StopAreaName.ToLower(),
-
-                    //LineExternalCode = line.LineExternalCode,
-                    //LineCode = line.LineCode.ToLower(),
-                    //LineName = line.LineName.ToLower(),
-                    //Direction = "1",
-                    //DirectionName = line.Forward.ForwardName.ToLower(),
-                    //Coord = line.Forward.Direction.StopArea.Coord,
                 });
             }
                         

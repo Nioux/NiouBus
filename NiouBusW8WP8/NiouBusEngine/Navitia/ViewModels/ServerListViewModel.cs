@@ -11,7 +11,7 @@ namespace NiouBusEngine
     public class ServerListViewModel : BaseViewModel
     {
         private ObservableCollection<NetworkListViewModel> _Networks = new ObservableCollection<NetworkListViewModel>();
-        public ObservableCollection<NetworkListViewModel> Networks { get { return _Networks; } set { SetProperty(ref _Networks, value); } }
+        public ObservableCollection<NetworkListViewModel> Networks { get { return _Networks; } set { Set(ref _Networks, value); } }
 
         public string _Search = string.Empty;
         public string Search 
@@ -19,7 +19,7 @@ namespace NiouBusEngine
             get { return _Search; } 
             set 
             { 
-                SetProperty(ref _Search, value); 
+                Set(ref _Search, value); 
                 NotifyPropertyChanged("FilteredNetworks"); 
             } 
         }
@@ -30,7 +30,7 @@ namespace NiouBusEngine
             get { return _HeaderEnabled; }
             set
             {
-                SetProperty(ref _HeaderEnabled, value);
+                Set(ref _HeaderEnabled, value);
             }
         }
         public List<NetworkListViewModel> FilteredNetworks 

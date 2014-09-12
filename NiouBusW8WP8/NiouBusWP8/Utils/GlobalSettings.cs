@@ -81,7 +81,7 @@ namespace NiouBusWP8
             }
         }
         private Color _BackgroundColor = Colors.Blue;
-        public Color BackgroundColor { get { return _BackgroundColor; } set { SetProperty(ref _BackgroundColor, value); } }
+        public Color BackgroundColor { get { return _BackgroundColor; } set { Set(ref _BackgroundColor, value); } }
 
         public class Themes
         {

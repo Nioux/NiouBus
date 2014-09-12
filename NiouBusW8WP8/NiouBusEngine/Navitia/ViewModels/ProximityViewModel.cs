@@ -14,7 +14,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _StopAreaName, value);
+                Set(ref _StopAreaName, value);
                 //_StopAreaName = value;
                 //NotifyPropertyChanged("StopAreaName");
             }
@@ -30,9 +30,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _StopAreaExternalCode, value);
-                //_StopAreaExternalCode = value;
-                //NotifyPropertyChanged("StopAreaExternalCode");
+                Set(ref _StopAreaExternalCode, value);
             }
         }
 
@@ -46,9 +44,7 @@ namespace NiouBusEngine
             }
             set
             {
-                SetProperty(ref _Coord, value);
-                //_Coord = value;
-                //NotifyPropertyChanged("Coord");
+                Set(ref _Coord, value);
             }
         }
     }
