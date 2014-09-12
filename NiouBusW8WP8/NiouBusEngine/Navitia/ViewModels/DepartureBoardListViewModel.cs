@@ -28,16 +28,11 @@ namespace NiouBusEngine
         private String _StopAreaExternalCode;
         public String StopAreaExternalCode { get { return _StopAreaExternalCode; } set { Set(ref _StopAreaExternalCode, value); } }
 
-        private bool _IsDataLoading = true;
-        public bool IsDataLoading { get { return _IsDataLoading; } private set { Set(ref _IsDataLoading, value); } }
-
         private Navitia.DepartureBoardList _DepartureBoardList;
         public Navitia.DepartureBoardList DepartureBoardList { get { return _DepartureBoardList; } set { Set(ref _DepartureBoardList, value); } }
 
-        public async Task LoadDataAsync(bool refresh)
+        public async Task LoadDataAsync()
         {
-            this.IsDataLoading = true;
-
             DepartureBoardList = await Navitia.NavitiaTools.GetAsync<Navitia.DepartureBoardList>(
                 Server: Server,
                 Action: Navitia.Action.DepartureBoard,
@@ -47,8 +42,6 @@ namespace NiouBusEngine
                 StopAreaExternalCode: StopAreaExternalCode,
                 Date: Date,
                 DateChangeTime: new TimeSpan(4, 0, 0));
-
-            this.IsDataLoading = false;
         }
 
 

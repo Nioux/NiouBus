@@ -10,6 +10,7 @@ namespace NiouBusWP8
     public partial class DepartureBoardListPage : BasePage
     {
         public const string BaseUri = "/Navitia/Pages/DepartureBoardListPage.xaml";
+        
         private DepartureBoardListViewModel _VM;
         public DepartureBoardListViewModel VM
         {
@@ -19,29 +20,28 @@ namespace NiouBusWP8
             }
             set
             {
-                _VM = value;
+                Set(ref _VM, value);
             }
         }
 
         public DepartureBoardListPage()
         {
-            VM = new DepartureBoardListViewModel();
-
             InitializeComponent();
 
-            //DataContext = VM;
+            VM = new DepartureBoardListViewModel();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (VM.IsDataLoading)
+            if (IsDataLoading)
             {
                 VM.Server = NavigationContext.SafeQueryString(Parameters.Server);
                 VM.Network = NavigationContext.SafeQueryString(Parameters.NetworkExternalCode);
                 VM.LineExternalCode = NavigationContext.SafeQueryString(Parameters.LineExternalCode);
                 VM.Direction = NavigationContext.SafeQueryString(Parameters.Direction);
                 VM.StopAreaExternalCode = NavigationContext.SafeQueryString(Parameters.StopAreaExternalCode);
-                await VM.LoadDataAsync(false);
+                await VM.LoadDataAsync();
+                IsDataLoading = false;
             }
         }
 
@@ -57,20 +57,20 @@ namespace NiouBusWP8
             if (e.OldDateTime.HasValue && e.NewDateTime.HasValue)
             {
                 VM.Date = e.NewDateTime.Value;
-                await VM.LoadDataAsync(true);
+                await VM.LoadDataAsync();
             }
         }
 
         private async void appBarButtonPrevious_Click(object sender, EventArgs e)
         {
             VM.Date = VM.Date.AddDays(-1);
-            await VM.LoadDataAsync(true);
+            await VM.LoadDataAsync();
         }
 
         private async void appBarButtonNext_Click(object sender, EventArgs e)
         {
             VM.Date = VM.Date.AddDays(1);
-            await VM.LoadDataAsync(true);
+            await VM.LoadDataAsync();
         }
     }
 }

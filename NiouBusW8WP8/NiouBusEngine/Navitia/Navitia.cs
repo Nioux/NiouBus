@@ -95,19 +95,19 @@ namespace NiouBusEngine.Navitia
         // elements
         [XmlArray("JourneyResultList")]
         [XmlArrayItem("JourneyResult", typeof(JourneyResult))]
-        public ObservableCollection<JourneyResult> JourneyResultList { get; set; }
+        public JourneyResultList JourneyResultList { get; set; }
 
         [XmlArray("CommentList")]
         [XmlArrayItem("Comment", typeof(Comment))]
-        public ObservableCollection<Comment> CommentList { get; set; }
+        public CommentList CommentList { get; set; }
 
         [XmlArray("ODTList")]
         [XmlArrayItem("ODT", typeof(ODT))]
-        public ObservableCollection<ODT> ODTList { get; set; }
+        public ODTList ODTList { get; set; }
 
         [XmlArray("EventList")]
         [XmlArrayItem("Event", typeof(Event))]
-        public ObservableCollection<Event> EventList { get; set; }
+        public EventList EventList { get; set; }
     }
 
     public class ActionLineStopAreaList : BaseViewModel
@@ -116,7 +116,7 @@ namespace NiouBusEngine.Navitia
         // elements
         [XmlArray("LineStopAreaList")]
         [XmlArrayItem("StopArea", typeof(StopArea))]
-        public ObservableCollection<StopArea> LineStopAreaList { get; set; }
+        public StopAreaList LineStopAreaList { get; set; }
     }
 
     [XmlRoot]
@@ -136,7 +136,7 @@ namespace NiouBusEngine.Navitia
         // elements
         [XmlArray("NetworkList")]
         [XmlArrayItem("Network", typeof(Network))]
-        public ObservableCollection<Network> NetworkList { get; set; }
+        public NetworkList NetworkList { get; set; }
 
     }
 
@@ -146,7 +146,7 @@ namespace NiouBusEngine.Navitia
         // elements
         [XmlArray("ModeList")]
         [XmlArrayItem("Mode", typeof(Mode))]
-        public ObservableCollection<Mode> ModeList { get; set; }
+        public ModeList ModeList { get; set; }
     }
 
     public class ActionStopAreaList : BaseViewModel
@@ -156,7 +156,7 @@ namespace NiouBusEngine.Navitia
         //public StopAreaList StopAreaList { get; set; }
         [XmlArray("StopAreaList")]
         [XmlArrayItem("StopArea", typeof(StopArea))]
-        public ObservableCollection<StopArea> StopArea { get; set; }
+        public StopAreaList StopArea { get; set; }
     }
 
     public class ActionEntryPointList : BaseViewModel
@@ -165,7 +165,7 @@ namespace NiouBusEngine.Navitia
         // elements
         [XmlArray("EntryPointList")]
         [XmlArrayItem("EntryPoint", typeof(EntryPoint))]
-        public ObservableCollection<EntryPoint> EntryPointList { get; set; }
+        public EntryPointList EntryPointList { get; set; }
         public PagerInfo PagerInfo { get; set; }
 
     }
@@ -187,7 +187,7 @@ namespace NiouBusEngine.Navitia
 
         [XmlArray("StopList")]
         [XmlArrayItem("Stop", typeof(Stop))]
-        public ObservableCollection<Stop> StopList { get; set; }
+        public StopList StopList { get; set; }
         public VehicleJourney VehicleJourney { get; set; }
     }
 
@@ -198,7 +198,7 @@ namespace NiouBusEngine.Navitia
 
         [XmlArray("ProximityList")]
         [XmlArrayItem("Proximity", typeof(Proximity))]
-        public ObservableCollection<Proximity> ProximityList { get; set; }
+        public ProximityList ProximityList { get; set; }
     }
 
     public class ActionStreetNetwork : BaseViewModel
@@ -207,7 +207,7 @@ namespace NiouBusEngine.Navitia
 
         [XmlArray("SegmentList")]
         [XmlArrayItem("Segment", typeof(Segment))]
-        public ObservableCollection<Segment> SegmentList { get; set; }
+        public SegmentList SegmentList { get; set; }
     }
 
     public class ActionNextDepartureList : BaseViewModel
@@ -220,7 +220,7 @@ namespace NiouBusEngine.Navitia
 
         [XmlArray("EventList")]
         [XmlArrayItem("Event", typeof(Event))]
-        public ObservableCollection<Event> EventList { get; set; }
+        public EventList EventList { get; set; }
     }
 
     public class ActionImpactList : BaseViewModel
@@ -229,7 +229,7 @@ namespace NiouBusEngine.Navitia
 
         [XmlArray("ImpactList")]
         [XmlArrayItem("Impact", typeof(Impact))]
-        public ObservableCollection<Impact> ImpactList { get; set; }
+        public ImpactList ImpactList { get; set; }
     }
 
     public class ActionSiteTypeList : BaseViewModel
@@ -238,7 +238,7 @@ namespace NiouBusEngine.Navitia
 
         [XmlArray("SiteTypeList")]
         [XmlArrayItem("SiteType", typeof(SiteType))]
-        public ObservableCollection<SiteType> SiteTypeList { get; set; }
+        public SiteTypeList SiteTypeList { get; set; }
     }
 
     public class ActionRoutePointList : BaseViewModel
@@ -277,29 +277,29 @@ namespace NiouBusEngine.Navitia
 
         [XmlArray("LineList")]
         [XmlArrayItem("Line", typeof(Line))]
-        public ObservableCollection<Line> LineList { get; set; }
+        public LineList LineList { get; set; }
 
         [XmlArray("RouteList")]
         [XmlArrayItem("Route", typeof(Route))]
-        public ObservableCollection<Route> RouteList { get; set; }
+        public RouteList RouteList { get; set; }
 
         [XmlArray("DestinationList")]
         [XmlArrayItem("Destination", typeof(Destination))]
-        public ObservableCollection<Destination> DestinationList { get; set; }
+        public DestinationList DestinationList { get; set; }
 
         [XmlArray("CommentList")]
         [XmlArrayItem("Comment", typeof(Comment))]
-        public ObservableCollection<Comment> CommentList { get; set; }
+        public CommentList CommentList { get; set; }
 
         [XmlArray("ODTList")]
         [XmlArrayItem("ODT", typeof(ODT))]
-        public ObservableCollection<ODT> ODTList { get; set; }
+        public ODTList ODTList { get; set; }
 
         public ValidityPatternSet ValidityPatternSet { get; set; }
 
         [XmlArray("VehicleList")]
         [XmlArrayItem("Vehicle", typeof(Vehicle))]
-        public ObservableCollection<Vehicle> VehicleList { get; set; }
+        public VehicleList VehicleList { get; set; }
 
     }
 
@@ -311,6 +311,8 @@ namespace NiouBusEngine.Navitia
         // elements
         //[XmlArray("Server")]
         [XmlElement("NetworkList")]
+        //[XmlArray("NetworkList")]
+        //[XmlArrayItem("Network", typeof(Network))]
         public ObservableCollection<NetworkList> NetworkList { get; set; }
 
         //public NetworkList GetServerByExternalCode(String _ServerExternalCode)
@@ -751,7 +753,7 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class DestinationList : ObservableCollectionViewModel<StopArea>
+    public class DestinationList : ObservableCollectionViewModel<Destination>
     {
         [XmlAttribute]
         public int DestinationCount { get; set; }
@@ -1185,7 +1187,7 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class NetworkList : BaseViewModel//ObservableCollectionViewModel<Network>
+    public class NetworkList : BaseViewModel// ObservableCollectionViewModel<Network>
     {
         // attributs
         [XmlAttribute]
@@ -1335,10 +1337,10 @@ namespace NiouBusEngine.Navitia
         public Nota Nota { get; set; }
         [XmlArray("FareSectionList")]
         [XmlArrayItem("FareSection", typeof(FareSection))]
-        public ObservableCollection<FareSection> FareSectionList { get; set; }
+        public FareSectionList FareSectionList { get; set; }
         [XmlArray("FareZoneList")]
         [XmlArrayItem("FareZone", typeof(FareZone))]
-        public ObservableCollection<FareZone> FareZoneList { get; set; }
+        public FareZoneList FareZoneList { get; set; }
     }
 
 
@@ -1526,10 +1528,10 @@ namespace NiouBusEngine.Navitia
         public Coord Coord { get; set; }
         [XmlArray("HangList")]
         [XmlArrayItem("Hang", typeof(Hang))]
-        public ObservableCollection<Hang> HangList { get; set; }
+        public HangList HangList { get; set; }
         [XmlArray("ModeList")]
         [XmlArrayItem("Mode", typeof(Mode))]
-        public ObservableCollection<Mode> ModeList { get; set; }
+        public ModeList ModeList { get; set; }
     }
 
 
@@ -1756,57 +1758,61 @@ namespace NiouBusEngine.Navitia
 
 
 
-    public class ActionAddressList
+    public class ActionAddressList : ObservableCollectionViewModel<Address>
     {
 
     }
 
-    public class ActionAddressTypeList
+    public class ActionAddressTypeList : ObservableCollectionViewModel<AddressType>
     {
 
     }
 
-    public class ActionBookingTypeList
+    public class ActionBookingTypeList : ObservableCollectionViewModel<BookingType>
     {
 
     }
 
-    public class ActionCityList
+    public class ActionCityList : ObservableCollectionViewModel<City>
     {
 
     }
 
-    public class ActionCommonLetterList
+    public class ActionCommonLetterList : ObservableCollectionViewModel<CommonLetter>
     {
 
     }
 
-    public class ActionCompanyList
+    public class ActionCompanyList : ObservableCollectionViewModel<Company>
     {
 
     }
 
-    public class ActionDepartmentList
+    public class ActionDepartmentList : ObservableCollectionViewModel<Department>
     {
 
     }
 
-    public class ActionDirectStopAreaList
+    public class ActionDirectStopAreaList : ObservableCollectionViewModel<StopArea>
     {
 
     }
 
-    public class ActionDistrictList
+    public class ActionDistrictList : ObservableCollectionViewModel<District>
     {
 
     }
 
-    public class ActionFirstLetterList
+    public class FirstLetter : BaseViewModel
+    {
+
+    }
+    public class ActionFirstLetterList : ObservableCollectionViewModel<FirstLetter>
     {
 
     }
 
-    public class ActionFreqSettingList
+    public class ActionFreqSettingList : ObservableCollectionViewModel<FreqSetting>
     {
 
     }
@@ -1816,7 +1822,7 @@ namespace NiouBusEngine.Navitia
 
     }
 
-    public class ActionGetEventList
+    public class ActionGetEventList : ObservableCollectionViewModel<Event>
     {
 
     }
@@ -1826,7 +1832,7 @@ namespace NiouBusEngine.Navitia
 
     }
 
-    public class ActionGetMediaList
+    public class ActionGetMediaList : ObservableCollectionViewModel<Media>
     {
 
     }
@@ -1836,7 +1842,7 @@ namespace NiouBusEngine.Navitia
 
     }
 
-    public class ActionIsochronList
+    public class ActionIsochronList : ObservableCollectionViewModel<Isochron>
     {
 
     }
@@ -1846,38 +1852,42 @@ namespace NiouBusEngine.Navitia
 
     }
 
-    public class ActionNextArrivalList
+    public class ActionNextArrivalList : ObservableCollectionViewModel<Arrival>
     {
 
     }
 
-    public class ActionOnBoardServiceList
+    public class ActionOnBoardServiceList : ObservableCollectionViewModel<OnBoardService>
     {
 
     }
 
-    public class ActionPhoneticList
+    public class ActionPhoneticList : ObservableCollectionViewModel<Phonetic>
     {
 
     }
 
-    public class ActionRouteList
+    public class ActionRouteList : ObservableCollectionViewModel<Route>
     {
 
     }
-    public class ActionSiteList
+    public class ActionSiteList : ObservableCollectionViewModel<Site>
     {
 
     }
-    public class ActionStopPointList
+    public class ActionStopPointList : ObservableCollectionViewModel<StopPoint>
     {
 
     }
-    public class ActionVehicleJourneyDetailList
+    public class VehicleJourneyDetail : BaseViewModel
     {
 
     }
-    public class ActionVehicleJourneyList
+    public class ActionVehicleJourneyDetailList : ObservableCollectionViewModel<VehicleJourneyDetail>
+    {
+
+    }
+    public class ActionVehicleJourneyList : ObservableCollectionViewModel<VehicleJourney>
     {
 
     }
