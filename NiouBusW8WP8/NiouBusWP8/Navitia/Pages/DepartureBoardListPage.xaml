@@ -9,6 +9,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:local="clr-namespace:NiouBusWP8"
     mc:Ignorable="d"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
     d:DataContext="{d:DesignData SampleData/DepartureBoardListSampleData.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -22,7 +23,7 @@
             <phone:Pivot.Title>
                 <Grid Background="{StaticResource ThemeAccentBrush}" Width="{Binding ActualWidth, ElementName=LayoutRoot}" Margin="-24,-20,0,0">
                     <TextBlock Foreground="White" Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Margin="10"/>
-                    <toolkit:DatePicker Foreground="White" Margin="0,-10,0,0" x:Name="datePicker"  Value="{Binding Date}" HorizontalAlignment="Right" ValueStringFormat="{}{0:dd MMMM yyyy}" BorderThickness="0" ValueChanged="DatePicker_ValueChanged" Height="50" VerticalAlignment="Top"/>
+                    <toolkit:DatePicker Foreground="White" Margin="0,-10,0,0" x:Name="datePicker"  Value="{Binding VM.Date}" HorizontalAlignment="Right" ValueStringFormat="{}{0:dd MMMM yyyy}" BorderThickness="0" ValueChanged="DatePicker_ValueChanged" Height="50" VerticalAlignment="Top"/>
                 </Grid>
             </phone:Pivot.Title>
             <phone:Pivot.HeaderTemplate>
@@ -33,10 +34,10 @@
 
             <phone:PivotItem Header="horaires">
                 <Grid>
-                    <TextBlock Text="{Binding DepartureBoardList.StopList.Nota, Converter={StaticResource NotaToLowerCaseConverter}}" Visibility="{Binding DepartureBoardList.StopList.Nota, Converter={StaticResource LengthToVisibilityConverter}}" FontSize="25">
+                    <TextBlock Text="{Binding VM.DepartureBoardList.StopList.Nota, Converter={StaticResource NotaToLowerCaseConverter}}" Visibility="{Binding VM.DepartureBoardList.StopList.Nota, Converter={StaticResource LengthToVisibilityConverter}}" FontSize="25">
                         
                     </TextBlock>
-                    <phone:LongListSelector ItemsSource="{Binding DepartureBoardList.StopList.Stop}" >
+                    <phone:LongListSelector ItemsSource="{Binding VM.DepartureBoardList.StopList.Stop}" >
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel toolkit:TiltEffect.IsTiltEnabled="True">
@@ -51,9 +52,9 @@
 
             <phone:PivotItem Header="détails">
                 <StackPanel>
-                    <TextBlock Text="{Binding DepartureBoardList.LineList[0].LineCode, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
-                    <TextBlock Text="{Binding DepartureBoardList.StopPointList.StopPoint[0].StopPointName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                    <TextBlock Text="{Binding DepartureBoardList.RouteList[0].RouteName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+                    <TextBlock Text="{Binding VM.DepartureBoardList.LineList[0].LineCode, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+                    <TextBlock Text="{Binding VM.DepartureBoardList.StopPointList.StopPoint[0].StopPointName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="{Binding VM.DepartureBoardList.RouteList[0].RouteName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                 </StackPanel>
             </phone:PivotItem>
         </phone:Pivot>

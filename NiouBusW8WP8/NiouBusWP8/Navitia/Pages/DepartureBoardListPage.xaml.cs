@@ -25,10 +25,11 @@ namespace NiouBusWP8
 
         public DepartureBoardListPage()
         {
+            VM = new DepartureBoardListViewModel();
+
             InitializeComponent();
 
-            VM = new DepartureBoardListViewModel();
-            DataContext = VM;
+            //DataContext = VM;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
