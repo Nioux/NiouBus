@@ -77,8 +77,8 @@ namespace NiouBusEngine
                 Action: Navitia.Action.ProximityList,
                 NetworkExternalCode: Network,
                 Type: Navitia.ProximityListType.StopArea,
-                X: Coord.CoordXString,
-                Y: Coord.CoordYString);
+                X: Coord.CoordX,
+                Y: Coord.CoordY);
             if (xd == null)
             {
                 this.IsDataLoading = false;

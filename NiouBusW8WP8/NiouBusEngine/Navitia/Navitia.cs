@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -67,8 +68,8 @@ namespace NiouBusEngine.Navitia
             DateTime? Date = null,
             TimeSpan? DateChangeTime = null,
             string Type = null,
-            string X = null,
-            string Y = null
+            NavitiaDouble? X = null,
+            NavitiaDouble? Y = null
             ) where T : class
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>() 
@@ -86,6 +87,71 @@ namespace NiouBusEngine.Navitia
                 };
             string url = string.Format(Constants.NavitiaUrlPattern, Server, parameters.EscapeAndConcat());
             return await Tools.GetXmlDataAsync<T>(url, true);
+        }
+    }
+
+
+
+
+    //public struct NavitiaBoolean : IXmlSerializable
+    //{
+
+    //    // we're just wrapping a bool
+    //    private bool Value;
+
+    //    // allow implicit casts to/from bool
+    //    public static implicit operator bool(NavitiaBoolean b)
+    //    {
+    //        System.Boolean
+    //        return b.Value;
+    //    }
+    //    public static implicit operator NavitiaBoolean(bool b)
+    //    {
+    //        return new NavitiaBoolean() { Value = b };
+    //    }
+
+    //    // implement IXmlSerializable
+    //    public System.Xml.Schema.XmlSchema GetSchema() { return null; }
+    //    public void ReadXml(System.Xml.XmlReader reader)
+    //    {
+    //        Value = (reader.ReadElementContentAsString() == "True");
+    //    }
+    //    public void WriteXml(System.Xml.XmlWriter writer)
+    //    {
+    //        writer.WriteString((Value) ? "True" : "False");
+    //    }
+    //}
+
+    public struct NavitiaDouble : IXmlSerializable
+    {
+        private static IFormatProvider FormatProvider = new CultureInfo("fr-FR");
+        // we're just wrapping a bool
+        private double Value;
+
+        // allow implicit casts to/from bool
+        public static implicit operator double(NavitiaDouble b)
+        {
+            return b.Value;
+        }
+        public static implicit operator NavitiaDouble(double b)
+        {
+            return new NavitiaDouble() { Value = b };
+        }
+
+        // implement IXmlSerializable
+        public System.Xml.Schema.XmlSchema GetSchema() { return null; }
+        public void ReadXml(System.Xml.XmlReader reader)
+        {
+            Value = double.Parse(reader.ReadElementContentAsString(), FormatProvider);
+        }
+        public void WriteXml(System.Xml.XmlWriter writer)
+        {
+            writer.WriteString(Value.ToString(FormatProvider));
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString(FormatProvider);
         }
     }
 
@@ -350,56 +416,60 @@ namespace NiouBusEngine.Navitia
     public class Coord : BaseViewModel
     {
         // éléments simples
-        private double _CoordX;
-        [XmlIgnore]
-        public double CoordX
-        {
-            get
-            {
-                return _CoordX;
-            }
-            set
-            {
-                _CoordX = value;
-            }
-        }
-        [XmlElement(ElementName = "CoordX")]
-        public String CoordXString
-        {
-            get
-            {
-                return _CoordX.ToString();//.Replace(".", ",");
-            }
-            set
-            {
-                _CoordX = double.Parse(value/*.Replace(",", ".")*/);
-            }
-        }
-        private double _CoordY;
-        [XmlIgnore]
-        public double CoordY
-        {
-            get
-            {
-                return _CoordY;
-            }
-            set
-            {
-                _CoordY = value;
-            }
-        }
-        [XmlElement(ElementName = "CoordY")]
-        public String CoordYString
-        {
-            get
-            {
-                return _CoordY.ToString();//.Replace(".", ",");
-            }
-            set
-            {
-                _CoordY = double.Parse(value/*.Replace(",", ".")*/);
-            }
-        }
+        //private double _CoordX;
+        //[XmlIgnore]
+        //public double CoordX
+        //{
+        //    get
+        //    {
+        //        return _CoordX;
+        //    }
+        //    set
+        //    {
+        //        _CoordX = value;
+        //    }
+        //}
+        //[XmlElement(ElementName = "CoordX")]
+        //public String CoordXString
+        //{
+        //    get
+        //    {
+        //        return _CoordX.ToString();//.Replace(".", ",");
+        //    }
+        //    set
+        //    {
+        //        _CoordX = double.Parse(value/*.Replace(",", ".")*/);
+        //    }
+        //}
+
+        public NavitiaDouble CoordX { get; set; }
+        public NavitiaDouble CoordY { get; set; }
+
+        //private double _CoordY;
+        //[XmlIgnore]
+        //public double CoordY
+        //{
+        //    get
+        //    {
+        //        return _CoordY;
+        //    }
+        //    set
+        //    {
+        //        _CoordY = value;
+        //    }
+        //}
+        //[XmlElement(ElementName = "CoordY")]
+        //public String CoordYString
+        //{
+        //    get
+        //    {
+        //        return _CoordY.ToString();//.Replace(".", ",");
+        //    }
+        //    set
+        //    {
+        //        _CoordY = double.Parse(value/*.Replace(",", ".")*/);
+        //    }
+        //}
         //public double CoordY { get; set; }
     }
 
@@ -815,25 +885,25 @@ namespace NiouBusEngine.Navitia
     public class Equipment : BaseViewModel
     {
         //[XmlAttribute]
-        //public bool BikeDepot { get; set; }
+        //public NavitiaBoolean BikeDepot { get; set; }
         //[XmlAttribute]
-        //public bool BikeAccepted { get; set; }
+        //public NavitiaBoolean BikeAccepted { get; set; }
         //[XmlAttribute]
-        //public bool Escalator { get; set; }
+        //public NavitiaBoolean Escalator { get; set; }
         //[XmlAttribute]
-        //public bool Elevator { get; set; }
+        //public NavitiaBoolean Elevator { get; set; }
         //[XmlAttribute]
-        //public bool MIPAccess { get; set; }
+        //public NavitiaBoolean MIPAccess { get; set; }
         //[XmlAttribute]
-        //public bool Sheltered { get; set; }
+        //public NavitiaBoolean Sheltered { get; set; }
         //[XmlAttribute]
-        //public bool VisualAnnouncement { get; set; }
+        //public NavitiaBoolean VisualAnnouncement { get; set; }
         //[XmlAttribute]
-        //public bool AudibleAnnouncement { get; set; }
+        //public NavitiaBoolean AudibleAnnouncement { get; set; }
         //[XmlAttribute]
-        //public bool AppropriateEscort { get; set; }
+        //public NavitiaBoolean AppropriateEscort { get; set; }
         //[XmlAttribute]
-        //public bool AppropriateSignage { get; set; }
+        //public NavitiaBoolean AppropriateSignage { get; set; }
     }
 
 
@@ -1685,17 +1755,18 @@ namespace NiouBusEngine.Navitia
 
     public class Vehicle : BaseViewModel
     {
-
         [XmlAttribute]
         public int VehicleIdx { get; set; }
         [XmlAttribute]
         public int VehicleId { get; set; }
+        [XmlIgnore]
+        public bool BikeAccepted { get; set; }
+        [XmlAttribute("BikeAccepted")]
+        public string BikeAcceptedString { get { return BikeAccepted ? "True" : "False"; } set { BikeAccepted = value == "True" ? true : false; } }
         //[XmlAttribute]
-        //public bool BikeAccepted { get; set; }
+        //public NavitiaBoolean MIPAccess { get; set; }
         //[XmlAttribute]
-        //public bool MIPAccess { get; set; }
-        //[XmlAttribute]
-        //public bool AirConditioned { get; set; }
+        //public NavitiaBoolean AirConditioned { get; set; }
         [XmlAttribute]
         public String VehicleExternalCode { get; set; }
         [XmlAttribute]
