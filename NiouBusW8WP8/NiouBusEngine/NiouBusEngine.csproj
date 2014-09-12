@@ -52,7 +52,6 @@
     <Compile Include="Navitia\ViewModels\ServerListViewModel.cs" />
     <Compile Include="Navitia\ViewModels\StopAreaListViewModel.cs" />
     <Compile Include="Navitia\ViewModels\StopAreaViewModel.cs" />
-    <Compile Include="Navitia\ViewModels\StopViewModel.cs" />
     <Compile Include="StreamExtensions.cs" />
     <Compile Include="Timeo\ViewModels\ArretsViewModel.cs" />
     <Compile Include="Timeo\ViewModels\ArretViewModel.cs" />

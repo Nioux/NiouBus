@@ -475,6 +475,14 @@ namespace NiouBusEngine.Navitia
         public int Minute { get; set; }
         public int Second { get; set; }
 
+        public String TimeString
+        {
+            get
+            {
+                return String.Format("{0:D2}:{1:D2}", Hour, Minute);
+            }
+        }
+
         //public int getMinutes()
         //{
         //    if (Day != null)

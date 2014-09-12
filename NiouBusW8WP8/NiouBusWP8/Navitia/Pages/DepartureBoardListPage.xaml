@@ -51,9 +51,8 @@
         <shell:ProgressIndicator IsIndeterminate="True" Text="Chargement..." IsVisible="{Binding  IsDataLoading}" />
     </shell:SystemTray.ProgressIndicator>
 
-    <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <!--Contrôle Pivot-->
+
         <phone:Pivot>
             <phone:Pivot.Title>
                 <Grid Background="{StaticResource ThemeAccentBrush}" Width="{Binding ActualWidth, ElementName=LayoutRoot}" Margin="-24,-20,0,0">
@@ -67,19 +66,17 @@
                 </DataTemplate>
             </phone:Pivot.HeaderTemplate>
 
-            <!--Élément un de tableau croisé dynamique-->
             <phone:PivotItem Header="horaires">
                 <Grid>
-                    <TextBlock Text="{Binding Nota, Converter={StaticResource NotaToLowerCaseConverter}}" Visibility="{Binding Nota, Converter={StaticResource LengthToVisibilityConverter}}" FontSize="25">
+                    <TextBlock Text="{Binding DepartureBoardList.StopList.Nota, Converter={StaticResource NotaToLowerCaseConverter}}" Visibility="{Binding DepartureBoardList.StopList.Nota, Converter={StaticResource LengthToVisibilityConverter}}" FontSize="25">
                         
                     </TextBlock>
-                    <phone:LongListSelector ItemsSource="{Binding Items}" >
+                    <phone:LongListSelector ItemsSource="{Binding DepartureBoardList.StopList.Stop}" >
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel toolkit:TiltEffect.IsTiltEnabled="True">
-                                    <TextBlock Text="{Binding Time}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="{StaticResource ThemeAccentBrush}"/>
-                                    <!--<TextBlock Text="{Binding LineName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>-->
-                                    <TextBlock Text="{Binding RouteName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                    <TextBlock Text="{Binding StopOrDepartureTime.TimeString}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="{StaticResource ThemeAccentBrush}"/>
+                                    <TextBlock Text="{Binding Route.RouteName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </phone:LongListSelector.ItemTemplate>
@@ -87,9 +84,12 @@
                 </Grid>
             </phone:PivotItem>
 
-            <!--Élément deux de tableau croisé dynamique-->
             <phone:PivotItem Header="détails">
-                <Grid/>
+                <StackPanel>
+                    <TextBlock Text="{Binding DepartureBoardList.LineList[0].LineCode, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+                    <TextBlock Text="{Binding DepartureBoardList.StopPointList.StopPoint[0].StopPointName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="{Binding DepartureBoardList.RouteList[0].RouteName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+                </StackPanel>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>
