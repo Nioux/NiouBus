@@ -7,15 +7,27 @@ using System.Windows.Navigation;
 
 namespace NiouBusWP8
 {
-    public partial class DepartureBoardListPage : PhoneApplicationPage
+    public partial class DepartureBoardListPage : BasePage
     {
         public const string BaseUri = "/Navitia/Pages/DepartureBoardListPage.xaml";
-        public DepartureBoardListViewModel VM = new DepartureBoardListViewModel();
+        private DepartureBoardListViewModel _VM;
+        public DepartureBoardListViewModel VM
+        {
+            get
+            {
+                return _VM;
+            }
+            set
+            {
+                _VM = value;
+            }
+        }
 
         public DepartureBoardListPage()
         {
             InitializeComponent();
 
+            VM = new DepartureBoardListViewModel();
             DataContext = VM;
         }
 

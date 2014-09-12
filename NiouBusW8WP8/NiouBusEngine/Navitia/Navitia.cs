@@ -482,6 +482,13 @@ namespace NiouBusEngine.Navitia
                 return String.Format("{0:D2}:{1:D2}", Hour, Minute);
             }
         }
+        public TimeSpan TimeSpan
+        {
+            get
+            {
+                return new TimeSpan(Day, Hour, Minute, Second);
+            }
+        }
 
         //public int getMinutes()
         //{

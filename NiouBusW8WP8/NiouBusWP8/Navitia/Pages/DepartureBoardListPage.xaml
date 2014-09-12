@@ -1,4 +1,4 @@
-﻿<phone:PhoneApplicationPage
+﻿<local:BasePage
     x:Class="NiouBusWP8.DepartureBoardListPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,41 +15,6 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
-
-    <UserControl.Resources>
-        <local:NotaConverter x:Key="NotaConverter" />
-        <local:LengthToVisibilityConverter x:Key="LengthToVisibilityConverter" />
-        <local:ToLowerCaseConverter x:Key="ToLowerCaseConverter" />
-        <local:ValueConverterGroup x:Key="NotaToLowerCaseConverter">
-            <local:NotaConverter/>
-            <local:ToLowerCaseConverter/>
-        </local:ValueConverterGroup>
-    </UserControl.Resources>
-
-    <toolkit:TransitionService.NavigationInTransition>
-        <toolkit:NavigationInTransition>
-            <toolkit:NavigationInTransition.Backward>
-                <toolkit:TurnstileTransition Mode="BackwardIn" />
-            </toolkit:NavigationInTransition.Backward>
-            <toolkit:NavigationInTransition.Forward>
-                <toolkit:TurnstileTransition Mode="ForwardIn" />
-            </toolkit:NavigationInTransition.Forward>
-        </toolkit:NavigationInTransition>
-    </toolkit:TransitionService.NavigationInTransition>
-    <toolkit:TransitionService.NavigationOutTransition>
-        <toolkit:NavigationOutTransition>
-            <toolkit:NavigationOutTransition.Backward>
-                <toolkit:TurnstileTransition Mode="BackwardOut" />
-            </toolkit:NavigationOutTransition.Backward>
-            <toolkit:NavigationOutTransition.Forward>
-                <toolkit:TurnstileTransition Mode="ForwardOut" />
-            </toolkit:NavigationOutTransition.Forward>
-        </toolkit:NavigationOutTransition>
-    </toolkit:TransitionService.NavigationOutTransition>
-
-    <shell:SystemTray.ProgressIndicator>
-        <shell:ProgressIndicator IsIndeterminate="True" Text="Chargement..." IsVisible="{Binding  IsDataLoading}" />
-    </shell:SystemTray.ProgressIndicator>
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
 
@@ -75,7 +40,7 @@
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel toolkit:TiltEffect.IsTiltEnabled="True">
-                                    <TextBlock Text="{Binding StopOrDepartureTime.TimeString}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="{StaticResource ThemeAccentBrush}"/>
+                                    <TextBlock Text="{Binding StopOrDepartureTime.TimeSpan, StringFormat=hh\\:mm}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="{StaticResource ThemeAccentBrush}"/>
                                     <TextBlock Text="{Binding Route.RouteName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -103,4 +68,4 @@
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
-</phone:PhoneApplicationPage>
+</local:BasePage>

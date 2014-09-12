@@ -5,6 +5,7 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:nioubus="clr-namespace:NiouBusWP8"
+    xmlns:local="clr-namespace:NiouBusWP8" 
     >
 
     <!--Ressources d'applications-->
@@ -27,6 +28,14 @@
         <Brush x:Key="MauveBrush">#FF76608A</Brush>
         <Brush x:Key="TaupeBrush">#FF87794E</Brush>
         <local:LocalizedStrings xmlns:local="clr-namespace:NiouBusWP8" x:Key="LocalizedStrings"/>
+
+        <local:NotaConverter x:Key="NotaConverter" />
+        <local:LengthToVisibilityConverter x:Key="LengthToVisibilityConverter" />
+        <local:ToLowerCaseConverter x:Key="ToLowerCaseConverter" />
+        <local:ValueConverterGroup x:Key="NotaToLowerCaseConverter">
+            <local:NotaConverter/>
+            <local:ToLowerCaseConverter/>
+        </local:ValueConverterGroup>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
