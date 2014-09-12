@@ -68,9 +68,9 @@ namespace NiouBusEngine
         {
             get
             {
-                if (DepartureBoardList != null && DepartureBoardList.StopPointList != null && DepartureBoardList.StopPointList.StopPoint != null && DepartureBoardList.StopPointList.StopPoint.Count > 0 && DepartureBoardList.StopPointList.StopPoint[0].StopPointName != null)
+                if (DepartureBoardList != null && DepartureBoardList.StopPointList != null && DepartureBoardList.StopPointList.Count > 0 && DepartureBoardList.StopPointList[0].StopPointName != null)
                 {
-                    return DepartureBoardList.StopPointList.StopPoint[0].StopPointName.ToLower();
+                    return DepartureBoardList.StopPointList[0].StopPointName.ToLower();
                 }
                 return null;
             }

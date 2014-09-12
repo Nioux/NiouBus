@@ -37,7 +37,7 @@
                     <TextBlock Text="{Binding VM.DepartureBoardList.StopList.Nota, Converter={StaticResource NotaToLowerCaseConverter}}" Visibility="{Binding VM.DepartureBoardList.StopList.Nota, Converter={StaticResource LengthToVisibilityConverter}}" FontSize="25">
                         
                     </TextBlock>
-                    <phone:LongListSelector ItemsSource="{Binding VM.DepartureBoardList.StopList.Stop}" >
+                    <phone:LongListSelector ItemsSource="{Binding VM.DepartureBoardList.StopList}" >
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel toolkit:TiltEffect.IsTiltEnabled="True">
@@ -53,7 +53,7 @@
             <phone:PivotItem Header="détails">
                 <StackPanel>
                     <TextBlock Text="{Binding VM.DepartureBoardList.LineList[0].LineCode, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
-                    <TextBlock Text="{Binding VM.DepartureBoardList.StopPointList.StopPoint[0].StopPointName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                    <TextBlock Text="{Binding VM.DepartureBoardList.StopPointList[0].StopPointName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
                     <TextBlock Text="{Binding VM.DepartureBoardList.RouteList[0].RouteName, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                 </StackPanel>
             </phone:PivotItem>
@@ -62,11 +62,9 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar BackgroundColor="{StaticResource ThemeBackgroundColor}" ForegroundColor="{StaticResource ThemeAccentColor}" Mode="Default" Opacity="1" IsMenuEnabled="True" IsVisible="True">
-            <!--<shell:ApplicationBarIconButton Click="appBarButtonRefresh_Click" IconUri="/Assets/appbar/dark/appbar.refresh.png" Text="raffraichir" />-->
             <shell:ApplicationBarIconButton Click="appBarButtonPrevious_Click" IconUri="/Assets/appbar/dark/appbar.navigate.previous.png" Text="hier" />
             <shell:ApplicationBarIconButton Click="appBarButtonNext_Click" IconUri="/Assets/appbar/dark/appbar.navigate.next.png" Text="demain" />
             <shell:ApplicationBarIconButton Click="appBarButtonPin_Click" IconUri="/Assets/appbar/dark/appbar.pin.png" Text="épingler" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
-
 </local:BasePage>
