@@ -12,7 +12,7 @@ using Windows.Devices.Geolocation;
 
 namespace NiouBusWP8
 {
-    public partial class ProximityListPage : PhoneApplicationPage
+    public partial class ProximityListPage : BasePage
     {
         public const string BaseUri = "/Navitia/Pages/ProximityListPage.xaml";
         public ProximityListViewModel VM = new ProximityListViewModel();

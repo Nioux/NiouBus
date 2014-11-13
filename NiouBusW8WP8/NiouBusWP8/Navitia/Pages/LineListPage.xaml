@@ -1,4 +1,4 @@
-﻿<phone:PhoneApplicationPage
+﻿<local:BasePage
     x:Class="NiouBusWP8.LineListPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -23,7 +23,7 @@
         <local:ToLowerCaseConverter x:Key="ToLowerCaseConverter" />
     </UserControl.Resources>
 
-    <toolkit:TransitionService.NavigationInTransition>
+    <!--<toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
             <toolkit:NavigationInTransition.Backward>
                 <toolkit:TurnstileTransition Mode="BackwardIn" />
@@ -42,11 +42,11 @@
                 <toolkit:TurnstileTransition Mode="ForwardOut" />
             </toolkit:NavigationOutTransition.Forward>
         </toolkit:NavigationOutTransition>
-    </toolkit:TransitionService.NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>-->
 
-    <shell:SystemTray.ProgressIndicator>
+    <!--<shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="True" Text="Chargement..." IsVisible="{Binding  IsDataLoading}" />
-    </shell:SystemTray.ProgressIndicator>
+    </shell:SystemTray.ProgressIndicator>-->
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <phone:Pivot x:Name="pivot" SelectionChanged="pivot_SelectionChanged">
@@ -108,4 +108,4 @@
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
-</phone:PhoneApplicationPage>
+</local:BasePage>

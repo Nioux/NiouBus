@@ -7,7 +7,7 @@ using System.Windows.Navigation;
 
 namespace NiouBusWP8
 {
-    public partial class StopAreaListPage : PhoneApplicationPage
+    public partial class StopAreaListPage : BasePage
     {
         public const string BaseUri = "/Navitia/Pages/StopAreaListPage.xaml";
         public StopAreaListViewModel VM = new StopAreaListViewModel();

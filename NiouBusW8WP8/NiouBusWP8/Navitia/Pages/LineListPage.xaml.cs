@@ -9,7 +9,7 @@ using System.Windows.Navigation;
 
 namespace NiouBusWP8
 {
-    public partial class LineListPage : PhoneApplicationPage
+    public partial class LineListPage : BasePage
     {
         public const string BaseUri = "/Navitia/Pages/LineListPage.xaml";
         public LineListViewModel VM = new LineListViewModel();

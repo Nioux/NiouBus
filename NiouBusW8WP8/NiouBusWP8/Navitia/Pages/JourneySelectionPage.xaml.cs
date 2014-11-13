@@ -14,7 +14,7 @@ using Windows.Devices.Geolocation;
 
 namespace NiouBusWP8
 {
-    public partial class JourneySelectionPage : PhoneApplicationPage
+    public partial class JourneySelectionPage : BasePage
     {
         private DispatcherTimer _TimerChange;
         public JourneySelectionPage()

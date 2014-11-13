@@ -10,7 +10,7 @@ using Microsoft.Phone.Shell;
 
 namespace NiouBusWP8
 {
-    public partial class EndOfCourseListPage : PhoneApplicationPage
+    public partial class EndOfCourseListPage : BasePage
     {
         public EndOfCourseListPage()
         {

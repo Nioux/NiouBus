@@ -37,7 +37,7 @@
                     <TextBlock Text="{Binding VM.DepartureBoardList.StopList.Nota, Converter={StaticResource NotaToLowerCaseConverter}}" Visibility="{Binding VM.DepartureBoardList.StopList.Nota, Converter={StaticResource LengthToVisibilityConverter}}" FontSize="25">
                         
                     </TextBlock>
-                    <phone:LongListSelector ItemsSource="{Binding VM.DepartureBoardList.StopList}" >
+                    <phone:LongListSelector ItemsSource="{Binding VM.DepartureBoardList.StopList.Stop}" >
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel toolkit:TiltEffect.IsTiltEnabled="True">

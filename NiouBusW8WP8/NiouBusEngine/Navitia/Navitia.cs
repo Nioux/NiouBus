@@ -333,8 +333,9 @@ namespace NiouBusEngine.Navitia
         public int MaxMinuteNumber { get { return _MaxMinuteNumber; } set { Set(ref _MaxMinuteNumber, value); } }
 
         // elements
-        [XmlArray("StopList")]
-        [XmlArrayItem("Stop", typeof(Stop))]
+        //[XmlArray("StopList")]
+        //[XmlArrayItem("Stop", typeof(Stop))]
+        [XmlElement("StopList")]
         public StopList StopList { get; set; }
 
         [XmlArray("StopPointList")]
@@ -1612,16 +1613,20 @@ namespace NiouBusEngine.Navitia
         public int StopAreaCount { get; set; }
     }
 
-
-    public class StopList : ObservableCollectionViewModel<Stop>
+    [XmlType(AnonymousType = true)]
+    public class StopList : BaseViewModel// ObservableCollectionViewModel<Stop>
     {
         [XmlAttribute]
         public int StopCount { get; set; }
         [XmlAttribute]
-        public String Nota { get; set; }
+        public string Nota { get; set; }
 
         public StopTime StopTime { get; set; }
         public Route Route { get; set; }
+
+        [XmlElement("Stop")]
+        //[XmlArrayItem("Stop", typeof(Stop))]
+        public ObservableCollection<Stop> Stop { get; set; }
     }
 
 
