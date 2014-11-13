@@ -16,6 +16,7 @@
     Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
     >
 
     <phone:PhoneApplicationPage.Resources>

@@ -27,6 +27,13 @@ namespace NiouBusWP8
             base.OnNavigatedTo(e);
             this.InitializeApplicationBar();
 
+            InitFavorites();
+
+            DataContext = this;
+        }
+
+        private void InitFavorites()
+        {
             LinkList = FavoriteHelper.LoadFavorites();
 
             if (LinkList == null)
@@ -57,8 +64,6 @@ namespace NiouBusWP8
                 LinkList = list;
                 FavoriteHelper.SaveFavorites(LinkList);
             }
-
-            DataContext = this;
         }
 
         public ObservableCollection<Favorite> LinkList { get; set; }

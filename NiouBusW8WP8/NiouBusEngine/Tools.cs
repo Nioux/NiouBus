@@ -20,6 +20,8 @@ namespace NiouBusEngine
                 using (HttpClient client = new HttpClient())
                 {
                     client.Timeout = new TimeSpan(0, 5, 0);
+                    client.DefaultRequestHeaders.IfModifiedSince = new DateTimeOffset(DateTime.Parse("1970-01-01 09:00am +00"));
+
                     using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url))
                     {
                         request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue();
