@@ -86,7 +86,8 @@ namespace NiouBusEngine
                 Server: Server,
                 Action: Navitia.Action.StopAreaList,
                 NetworkExternalCode: Network,
-                LineExternalCode: LineExternalCode);
+                LineExternalCode: LineExternalCode,
+                StopAreaExternalCode: StopAreaExternalCode);
             if (xd == null)
             {
                 this.IsDataLoading = false;

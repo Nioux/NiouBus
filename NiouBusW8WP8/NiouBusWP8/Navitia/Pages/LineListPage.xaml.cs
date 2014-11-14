@@ -68,13 +68,33 @@ namespace NiouBusWP8
 
         }
 
-        private void appBarButtonPin_Click(object sender, EventArgs e)
+        private async void appBarButtonPin_Click(object sender, EventArgs e)
         {
-            Func<NetworkViewModel, bool> isNetwork = (NetworkViewModel net) => { return net.Server == VM.Server && net.NetworkExternalCode == VM.Network; };
-            var network = GlobalSettings.ServerList.Networks.First(nets => nets.Where(isNetwork).FirstOrDefault() != null).First(isNetwork);
+            if (String.IsNullOrWhiteSpace(VM.StopAreaExternalCode))
+            {
+                Func<NetworkViewModel, bool> isNetwork = (NetworkViewModel net) => { return net.Server == VM.Server && net.NetworkExternalCode == VM.Network; };
+                var network = GlobalSettings.ServerList.Networks.First(nets => nets.Where(isNetwork).FirstOrDefault() != null).First(isNetwork);
 
-            string url = BaseUri + "?" + NavitiaTools.GetParameters(Server: VM.Server, NetworkExternalCode: VM.Network).EscapeAndConcat();
-            NavigationService.Navigate(new Uri(ColorPickerPage.BaseUri + "?" + ColorPickerPage.GetParameters(Title: network.NetworkName, Line1: "liste des lignes", Line2: null, Uri: url).EscapeAndConcat(), UriKind.Relative));
+                string url = BaseUri + "?" + NavitiaTools.GetParameters(Server: VM.Server, NetworkExternalCode: VM.Network).EscapeAndConcat();
+                NavigationService.Navigate(new Uri(ColorPickerPage.BaseUri + "?" + ColorPickerPage.GetParameters(Title: network.NetworkName, Line1: "liste des lignes", Line2: null, Uri: url).EscapeAndConcat(), UriKind.Relative));
+            }
+            else
+            {
+                string url = BaseUri + "?" + NavitiaTools.GetParameters(Server: VM.Server, NetworkExternalCode: VM.Network, StopAreaExternalCode: VM.StopAreaExternalCode).EscapeAndConcat();
+
+                StopAreaListViewModel vm = new StopAreaListViewModel();
+                vm.Server = VM.Server;
+                vm.Network = VM.Network;
+                vm.StopAreaExternalCode = VM.StopAreaExternalCode;
+                await vm.LoadDataAsync(true);
+                if (vm.Items != null && vm.Items.Count > 0)
+                {
+                    string title = vm.Items[0].StopAreaName;
+                    string line1 = vm.Items[0].CityName;
+
+                    NavigationService.Navigate(new Uri(ColorPickerPage.BaseUri + "?" + ColorPickerPage.GetParameters(Title: title, Line1: line1, Line2: "liste des lignes", Uri: url).EscapeAndConcat(), UriKind.Relative));
+                }
+            }
         }
 
         private void appBarButtonMap_Click(object sender, EventArgs e)

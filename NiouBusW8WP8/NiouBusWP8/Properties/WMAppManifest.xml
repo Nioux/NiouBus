@@ -4,7 +4,7 @@
   <Languages xmlns="">
     <Language code="fr-FR" />
   </Languages>
-  <App xmlns="" ProductID="{5bd522cc-a226-4ad2-985a-215ec0883c49}" Title="NiouBus" RuntimeType="Silverlight" Version="1.0.0.7" Genre="apps.normal" Author="Yan Maniez" Description="Affichage des horaires de bus, métro, tram, ..." Publisher="NiouBus" PublisherID="{6fa3d869-0283-4afa-99db-05bc7511b6e1}">
+  <App xmlns="" ProductID="{5bd522cc-a226-4ad2-985a-215ec0883c49}" Title="NiouBus" RuntimeType="Silverlight" Version="1.0.0.8" Genre="apps.normal" Author="Yan Maniez" Description="Affichage des horaires de bus, métro, tram, ..." Publisher="NiouBus" PublisherID="{6fa3d869-0283-4afa-99db-05bc7511b6e1}">
     <IconPath IsRelative="true" IsResource="false">Assets\NiouBus336.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
