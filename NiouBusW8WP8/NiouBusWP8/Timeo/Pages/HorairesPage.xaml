@@ -79,18 +79,16 @@
             </phone:PivotItem>
 
             <phone:PivotItem Header="messages">
-                <StackPanel>
-                    <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Messages}">
-                        <phone:LongListSelector.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
-                                    <TextBlock Text="{Binding Titre, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" Foreground="{StaticResource ThemeAccentBrush}"/>
-                                    <TextBlock Text="{Binding Texte, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </phone:LongListSelector.ItemTemplate>
-                    </phone:LongListSelector>
-                </StackPanel>
+                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Messages}">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
+                                <TextBlock Text="{Binding Titre, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" Foreground="{StaticResource ThemeAccentBrush}"/>
+                                <TextBlock Text="{Binding Texte, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
             </phone:PivotItem>
             <phone:PivotItem Header="détails">
                 <StackPanel>
