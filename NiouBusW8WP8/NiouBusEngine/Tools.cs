@@ -27,10 +27,14 @@ namespace NiouBusEngine
                         request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue();
                         request.Headers.CacheControl.NoCache = true;
                         request.Headers.CacheControl.NoStore = true;
+                        //request.Method = HttpMethod.Post;
+                        //request.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
                         using (HttpResponseMessage response = await client.SendAsync(request))
                         {
                             using (Stream responseStream = await response.Content.ReadAsStreamAsync())
                             {
+                                //return responseStream.JsonDeserializeTo<T>();
                                 return responseStream.XmlDeserializeTo<T>();
                             }
                         }
