@@ -61,9 +61,9 @@ namespace NiouBusEngine
         {
             get
             {
-                if (DepartureBoardList != null && DepartureBoardList.StopPointList != null && DepartureBoardList.StopPointList.Count > 0 && DepartureBoardList.StopPointList[0].StopPointName != null)
+                if (DepartureBoardList != null && DepartureBoardList.StopPointList != null && DepartureBoardList.StopPointList.StopPoint != null && DepartureBoardList.StopPointList.StopPoint.Count > 0 && DepartureBoardList.StopPointList.StopPoint[0].StopPointName != null)
                 {
-                    return DepartureBoardList.StopPointList[0].StopPointName.ToLower();
+                    return DepartureBoardList.StopPointList.StopPoint[0].StopPointName.ToLower();
                 }
                 return null;
             }
@@ -73,9 +73,9 @@ namespace NiouBusEngine
         {
             get
             {
-                if (DepartureBoardList != null && DepartureBoardList.LineList != null && DepartureBoardList.LineList.Count > 0 && DepartureBoardList.LineList[0].LineCode != null)
+                if (DepartureBoardList != null && DepartureBoardList.LineList != null && DepartureBoardList.LineList.Line != null && DepartureBoardList.LineList.Line.Count > 0 && DepartureBoardList.LineList.Line[0].LineCode != null)
                 {
-                    return DepartureBoardList.LineList[0].LineCode.ToLower();
+                    return DepartureBoardList.LineList.Line[0].LineCode.ToLower();
                 }
                 return null;
             }

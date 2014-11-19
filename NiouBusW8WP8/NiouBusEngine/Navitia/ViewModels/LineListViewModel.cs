@@ -81,7 +81,7 @@ namespace NiouBusEngine
             }
 
             this.Items.Clear();
-            foreach (var line in xd.LineList)
+            foreach (var line in xd.LineList.Line)
             {
                 if (!String.IsNullOrWhiteSpace(line.Forward.ForwardName))
                 {

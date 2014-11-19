@@ -338,12 +338,12 @@ namespace NiouBusEngine.Navitia
         [XmlElement("StopList")]
         public StopList StopList { get; set; }
 
-        [XmlArray("StopPointList")]
-        [XmlArrayItem("StopPoint", typeof(StopPoint))]
+        //[XmlArray("StopPointList")]
+        //[XmlArrayItem("StopPoint", typeof(StopPoint))]
         public StopPointList StopPointList { get; set; }
 
-        [XmlArray("LineList")]
-        [XmlArrayItem("Line", typeof(Line))]
+        //[XmlArray("LineList")]
+        //[XmlArrayItem("Line", typeof(Line))]
         public LineList LineList { get; set; }
 
         [XmlArray("RouteList")]
@@ -1184,11 +1184,13 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class LineList : ObservableCollectionViewModel<Line>
+    public class LineList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int LineCount { get; set; }
+
+        public ObservableCollectionViewModel<Line> Line { get; set; }
     }
 
 
@@ -1675,10 +1677,12 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class StopPointList : ObservableCollectionViewModel<StopPoint>
+    public class StopPointList : BaseViewModel
     {
         [XmlAttribute]
         public int StopPointCount { get; set; }
+
+        public ObservableCollectionViewModel<StopPoint> StopPoint { get; set; }
     }
 
 
