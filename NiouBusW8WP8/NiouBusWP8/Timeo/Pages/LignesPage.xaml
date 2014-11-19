@@ -66,7 +66,10 @@
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                 <TextBlock Text="{Binding ligne.nom, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Foreground="{StaticResource ThemeAccentBrush}" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                <TextBlock Text="{Binding ligne.vers, Converter={StaticResource ToLowerCaseConverter}}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                <TextBlock TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}">
+                                    <Run Text="direction :" />
+                                    <Run Text="{Binding ligne.vers, Converter={StaticResource ToLowerCaseConverter}}" />
+                                </TextBlock>
                             </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
