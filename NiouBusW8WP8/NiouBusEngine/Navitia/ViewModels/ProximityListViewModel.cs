@@ -86,7 +86,7 @@ namespace NiouBusEngine
             }
 
             this.Items.Clear();
-            foreach (var proximity in xd.ProximityList)
+            foreach (var proximity in xd.ProximityList.Proximity)
             {
                 this.Items.Add(new ProximityViewModel()
                 {

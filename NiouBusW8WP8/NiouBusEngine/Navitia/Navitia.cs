@@ -159,20 +159,24 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "PlanJourney";
         // elements
-        [XmlArray("JourneyResultList")]
-        [XmlArrayItem("JourneyResult", typeof(JourneyResult))]
+        //[XmlArray("JourneyResultList")]
+        //[XmlArrayItem("JourneyResult", typeof(JourneyResult))]
+        [XmlElement]
         public JourneyResultList JourneyResultList { get; set; }
 
-        [XmlArray("CommentList")]
-        [XmlArrayItem("Comment", typeof(Comment))]
+        //[XmlArray("CommentList")]
+        //[XmlArrayItem("Comment", typeof(Comment))]
+        [XmlElement]
         public CommentList CommentList { get; set; }
 
-        [XmlArray("ODTList")]
-        [XmlArrayItem("ODT", typeof(ODT))]
+        //[XmlArray("ODTList")]
+        //[XmlArrayItem("ODT", typeof(ODT))]
+        [XmlElement]
         public ODTList ODTList { get; set; }
 
-        [XmlArray("EventList")]
-        [XmlArrayItem("Event", typeof(Event))]
+        //[XmlArray("EventList")]
+        //[XmlArrayItem("Event", typeof(Event))]
+        [XmlElement]
         public EventList EventList { get; set; }
     }
 
@@ -180,8 +184,9 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "LineStopAreaList";
         // elements
-        [XmlArray("LineStopAreaList")]
-        [XmlArrayItem("StopArea", typeof(StopArea))]
+        //[XmlArray("LineStopAreaList")]
+        //[XmlArrayItem("StopArea", typeof(StopArea))]
+        [XmlElement]
         public StopAreaList LineStopAreaList { get; set; }
     }
 
@@ -191,8 +196,9 @@ namespace NiouBusEngine.Navitia
         public static String Action = "LineList";
         
         // elements
-        [XmlArray("LineList")]
-        [XmlArrayItem("Line", typeof(Line))]
+        //[XmlArray("LineList")]
+        //[XmlArrayItem("Line", typeof(Line))]
+        [XmlElement]
         public LineList LineList { get; set; }
     }
 
@@ -200,8 +206,9 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "NetworkList";
         // elements
-        [XmlArray("NetworkList")]
-        [XmlArrayItem("Network", typeof(Network))]
+        //[XmlArray("NetworkList")]
+        //[XmlArrayItem("Network", typeof(Network))]
+        [XmlElement]
         public NetworkList NetworkList { get; set; }
 
     }
@@ -210,8 +217,9 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "ModeList";
         // elements
-        [XmlArray("ModeList")]
-        [XmlArrayItem("Mode", typeof(Mode))]
+        //[XmlArray("ModeList")]
+        //[XmlArrayItem("Mode", typeof(Mode))]
+        [XmlElement]
         public ModeList ModeList { get; set; }
     }
 
@@ -220,18 +228,21 @@ namespace NiouBusEngine.Navitia
         public static String Action = "StopAreaList";
         // elements
         //public StopAreaList StopAreaList { get; set; }
-        [XmlArray("StopAreaList")]
-        [XmlArrayItem("StopArea", typeof(StopArea))]
-        public StopAreaList StopArea { get; set; }
+        //[XmlArray("StopAreaList")]
+        //[XmlArrayItem("StopArea", typeof(StopArea))]
+        [XmlElement]
+        public StopAreaList StopAreaList { get; set; }
     }
 
     public class ActionEntryPointList : BaseViewModel
     {
         public static String Action = "EntryPoint";
         // elements
-        [XmlArray("EntryPointList")]
-        [XmlArrayItem("EntryPoint", typeof(EntryPoint))]
+        //[XmlArray("EntryPointList")]
+        //[XmlArrayItem("EntryPoint", typeof(EntryPoint))]
+        [XmlElement]
         public EntryPointList EntryPointList { get; set; }
+        [XmlElement]
         public PagerInfo PagerInfo { get; set; }
 
     }
@@ -240,9 +251,13 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "MakeBinaryCriteria";
         // elements
+        [XmlElement]
         public Vehicle Vehicle { get; set; }
+        [XmlElement]
         public StopPointEquipment StopPointEquipment { get; set; }
+        [XmlElement]
         public Mode Mode { get; set; }
+        [XmlElement]
         public ModeType ModeType { get; set; }
     }
 
@@ -251,9 +266,11 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "EndOfCourse";
 
-        [XmlArray("StopList")]
-        [XmlArrayItem("Stop", typeof(Stop))]
+        //[XmlArray("StopList")]
+        //[XmlArrayItem("Stop", typeof(Stop))]
+        [XmlElement]
         public StopList StopList { get; set; }
+        [XmlElement]
         public VehicleJourney VehicleJourney { get; set; }
     }
 
@@ -262,8 +279,9 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "ProximityList";
 
-        [XmlArray("ProximityList")]
-        [XmlArrayItem("Proximity", typeof(Proximity))]
+        //[XmlArray("ProximityList")]
+        //[XmlArrayItem("Proximity", typeof(Proximity))]
+        [XmlElement]
         public ProximityList ProximityList { get; set; }
     }
 
@@ -271,8 +289,9 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "StreetNetwork";
 
-        [XmlArray("SegmentList")]
-        [XmlArrayItem("Segment", typeof(Segment))]
+        //[XmlArray("SegmentList")]
+        //[XmlArrayItem("Segment", typeof(Segment))]
+        [XmlElement]
         public SegmentList SegmentList { get; set; }
     }
 
@@ -284,8 +303,9 @@ namespace NiouBusEngine.Navitia
         //[XmlArrayItem("", typeof())]
         //public NextDeparture[] NextDepartureList { get; set; }
 
-        [XmlArray("EventList")]
-        [XmlArrayItem("Event", typeof(Event))]
+        //[XmlArray("EventList")]
+        //[XmlArrayItem("Event", typeof(Event))]
+        [XmlElement]
         public EventList EventList { get; set; }
     }
 
@@ -293,8 +313,9 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "GetImpactList";
 
-        [XmlArray("ImpactList")]
-        [XmlArrayItem("Impact", typeof(Impact))]
+        //[XmlArray("ImpactList")]
+        //[XmlArrayItem("Impact", typeof(Impact))]
+        [XmlElement]
         public ImpactList ImpactList { get; set; }
     }
 
@@ -302,8 +323,9 @@ namespace NiouBusEngine.Navitia
     {
         public static String Action = "SiteTypeList";
 
-        [XmlArray("SiteTypeList")]
-        [XmlArrayItem("SiteType", typeof(SiteType))]
+        //[XmlArray("SiteTypeList")]
+        //[XmlArrayItem("SiteType", typeof(SiteType))]
+        [XmlElement]
         public SiteTypeList SiteTypeList { get; set; }
     }
 
@@ -335,37 +357,45 @@ namespace NiouBusEngine.Navitia
         // elements
         //[XmlArray("StopList")]
         //[XmlArrayItem("Stop", typeof(Stop))]
-        [XmlElement("StopList")]
+        [XmlElement]
         public StopList StopList { get; set; }
 
         //[XmlArray("StopPointList")]
         //[XmlArrayItem("StopPoint", typeof(StopPoint))]
+        [XmlElement]
         public StopPointList StopPointList { get; set; }
 
         //[XmlArray("LineList")]
         //[XmlArrayItem("Line", typeof(Line))]
+        [XmlElement]
         public LineList LineList { get; set; }
 
-        [XmlArray("RouteList")]
-        [XmlArrayItem("Route", typeof(Route))]
+        //[XmlArray("RouteList")]
+        //[XmlArrayItem("Route", typeof(Route))]
+        [XmlElement]
         public RouteList RouteList { get; set; }
 
-        [XmlArray("DestinationList")]
-        [XmlArrayItem("Destination", typeof(Destination))]
+        //[XmlArray("DestinationList")]
+        //[XmlArrayItem("Destination", typeof(Destination))]
+        [XmlElement]
         public DestinationList DestinationList { get; set; }
 
-        [XmlArray("CommentList")]
-        [XmlArrayItem("Comment", typeof(Comment))]
+        //[XmlArray("CommentList")]
+        //[XmlArrayItem("Comment", typeof(Comment))]
+        [XmlElement]
         public CommentList CommentList { get; set; }
 
-        [XmlArray("ODTList")]
-        [XmlArrayItem("ODT", typeof(ODT))]
+        //[XmlArray("ODTList")]
+        //[XmlArrayItem("ODT", typeof(ODT))]
+        [XmlElement]
         public ODTList ODTList { get; set; }
 
+        [XmlElement]
         public ValidityPatternSet ValidityPatternSet { get; set; }
 
-        [XmlArray("VehicleList")]
-        [XmlArrayItem("Vehicle", typeof(Vehicle))]
+        //[XmlArray("VehicleList")]
+        //[XmlArrayItem("Vehicle", typeof(Vehicle))]
+        [XmlElement]
         public VehicleList VehicleList { get; set; }
 
     }
@@ -377,7 +407,7 @@ namespace NiouBusEngine.Navitia
 
         // elements
         //[XmlArray("Server")]
-        [XmlElement("NetworkList")]
+        [XmlElement]
         //[XmlArray("NetworkList")]
         //[XmlArrayItem("Network", typeof(Network))]
         public ObservableCollection<NetworkList> NetworkList { get; set; }
@@ -443,7 +473,9 @@ namespace NiouBusEngine.Navitia
         //    }
         //}
 
+        [XmlElement]
         public NavitiaDouble CoordX { get; set; }
+        [XmlElement]
         public NavitiaDouble CoordY { get; set; }
 
         //private double _CoordY;
@@ -496,8 +528,11 @@ namespace NiouBusEngine.Navitia
     public class Date : BaseViewModel
     {
         // elements simples
+        [XmlElement]
         public int Year { get; set; }
+        [XmlElement]
         public int Month { get; set; }
+        [XmlElement]
         public int Day { get; set; }
 
         public DateTime DateTime
@@ -537,10 +572,15 @@ namespace NiouBusEngine.Navitia
     public class Time : BaseViewModel
     {
         // elements simples
+        [XmlElement]
         public int TotalSeconds { get; set; }
+        [XmlElement]
         public int Day { get; set; }
+        [XmlElement]
         public int Hour { get; set; }
+        [XmlElement]
         public int Minute { get; set; }
+        [XmlElement]
         public int Second { get; set; }
 
         public TimeSpan TimeSpan
@@ -644,8 +684,11 @@ namespace NiouBusEngine.Navitia
         public String AddressExternalCode { get; set; }
 
         // elements
+        [XmlElement]
         public City City { get; set; }
+        [XmlElement]
         public AddressType AddressType { get; set; }
+        [XmlElement]
         public Coord Coord { get; set; }
     }
 
@@ -667,12 +710,19 @@ namespace NiouBusEngine.Navitia
     public class After : BaseViewModel
     {
         // elements simples
+        [XmlElement]
         public int Sens { get; set; }
+        [XmlElement]
         public int Year { get; set; }
+        [XmlElement]
         public int Month { get; set; }
+        [XmlElement]
         public int Day { get; set; }
+        [XmlElement]
         public int Hour { get; set; }
+        [XmlElement]
         public int Minute { get; set; }
+        [XmlElement]
         public int Criteria { get; set; }
     }
 
@@ -690,9 +740,13 @@ namespace NiouBusEngine.Navitia
         public int StopIdx { get; set; }
 
         // elements
+        [XmlElement]
         public Date Date { get; set; }
+        [XmlElement]
         public Time Time { get; set; }
+        [XmlElement]
         public Coord Coord { get; set; }
+        [XmlElement]
         public StopPoint StopPoint { get; set; }
     }
 
@@ -701,6 +755,7 @@ namespace NiouBusEngine.Navitia
     {
         [XmlAttribute]
         public String BackwardName { get; set; }
+        [XmlElement]
         public Direction Direction { get; set; }
     }
 
@@ -708,12 +763,19 @@ namespace NiouBusEngine.Navitia
     public class Before : BaseViewModel
     {
         // elements simples
+        [XmlElement]
         public int Sens { get; set; }
+        [XmlElement]
         public int Year { get; set; }
+        [XmlElement]
         public int Month { get; set; }
+        [XmlElement]
         public int Day { get; set; }
+        [XmlElement]
         public int Hour { get; set; }
+        [XmlElement]
         public int Minute { get; set; }
+        [XmlElement]
         public int Criteria { get; set; }
     }
 
@@ -721,8 +783,11 @@ namespace NiouBusEngine.Navitia
     public class Call : BaseViewModel
     {
         // elements
+        [XmlElement]
         public Before Before { get; set; }
+        [XmlElement]
         public This This { get; set; }
+        [XmlElement]
         public After After { get; set; }
     }
 
@@ -741,6 +806,7 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public String CityCode { get; set; }
 
+        [XmlElement]
         public Country Country { get; set; }
     }
 
@@ -758,15 +824,20 @@ namespace NiouBusEngine.Navitia
         public String CommentExternalCode { get; set; }
 
         // elements
+        [XmlElement]
         public StartDate StartDate { get; set; }
+        [XmlElement]
         public EndDate EndDate { get; set; }
     }
 
 
-    public class CommentList : ObservableCollectionViewModel<Comment>
+    public class CommentList : BaseViewModel
     {
         [XmlAttribute]
         public int CommentCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Comment> Comment { get; set; }
     }
 
 
@@ -810,9 +881,13 @@ namespace NiouBusEngine.Navitia
         public int StopIdx { get; set; }
 
         // elements
+        [XmlElement]
         public Date Date { get; set; }
+        [XmlElement]
         public Time Time { get; set; }
+        [XmlElement]
         public Coord Coord { get; set; }
+        [XmlElement]
         public StopPoint StopPoint { get; set; }
     }
 
@@ -820,19 +895,24 @@ namespace NiouBusEngine.Navitia
     public class Destination : BaseViewModel
     {
         // elements
+        [XmlElement]
         public StopArea StopArea { get; set; }
     }
 
 
-    public class DestinationList : ObservableCollectionViewModel<Destination>
+    public class DestinationList : BaseViewModel
     {
         [XmlAttribute]
         public int DestinationCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Destination> Destination { get; set; }
     }
 
 
     public class Direction : BaseViewModel
     {
+        [XmlElement]
         public StopArea StopArea { get; set; }
     }
 
@@ -840,6 +920,7 @@ namespace NiouBusEngine.Navitia
     public class EndNode : BaseViewModel
     {
         // elements
+        [XmlElement]
         public Coord Coord { get; set; }
     }
 
@@ -861,25 +942,33 @@ namespace NiouBusEngine.Navitia
         public String EntryPointName { get; set; }
 
         // elements
+        [XmlElement]
         public Site Site { get; set; }
+        [XmlElement]
         public Coord Coord { get; set; }
 
-        [XmlArray("HangList")]
-        [XmlArrayItem("Hang", typeof(Hang))]
-        public ObservableCollection<Hang> HangList { get; set; }
+        //[XmlArray("HangList")]
+        //[XmlArrayItem("Hang", typeof(Hang))]
+        [XmlElement]
+        public HangList HangList { get; set; }
 
+        [XmlElement]
         public StopArea StopArea { get; set; }
+        [XmlElement]
         public City City { get; set; }
     }
 
 
-    public class EntryPointList : ObservableCollectionViewModel<EntryPoint>
+    public class EntryPointList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int EntryPointCount { get; set; }
         [XmlAttribute]
         public int EntryPointInQualityCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<EntryPoint> EntryPoint { get; set; }
     }
 
 
@@ -917,15 +1006,21 @@ namespace NiouBusEngine.Navitia
         public int ProviderID { get; set; }
 
         // éléments
+        [XmlElement]
         public EventLevelTitle EventLevelTitle { get; set; }
+        [XmlElement]
         public EventTitle EventTitle { get; set; }
+        [XmlElement]
         public EventExternalCode EventExternalCode { get; set; }
+        [XmlElement]
         public EventPublicationStartDate EventPublicationStartDate { get; set; }
+        [XmlElement]
         public EventPublicationEndDate EventPublicationEndDate { get; set; }
 
-        [XmlArray("ImpactList")]
-        [XmlArrayItem("Impact", typeof(Impact))]
-        public ObservableCollection<Impact> ImpactList { get; set; }
+        //[XmlArray("ImpactList")]
+        //[XmlArrayItem("Impact", typeof(Impact))]
+        [XmlElement]
+        public ImpactList ImpactList { get; set; }
     }
 
 
@@ -959,11 +1054,14 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class EventList : ObservableCollectionViewModel<Event>
+    public class EventList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int EventCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Event> Event { get; set; }
     }
 
     public class EventPos : BaseViewModel
@@ -985,11 +1083,14 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class FareSectionList : ObservableCollectionViewModel<FareSection>
+    public class FareSectionList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int FareSectionCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<FareSection> FareSection { get; set; }
     }
 
 
@@ -998,11 +1099,14 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class FareZoneList : ObservableCollectionViewModel<FareZone>
+    public class FareZoneList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int FareZoneCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<FareZone> FareZone { get; set; }
     }
 
 
@@ -1012,6 +1116,7 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public String ForwardName { get; set; }
 
+        [XmlElement]
         public Direction Direction { get; set; }
     }
 
@@ -1028,7 +1133,7 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class HangList : ObservableCollectionViewModel<Hang>
+    public class HangList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
@@ -1037,6 +1142,9 @@ namespace NiouBusEngine.Navitia
         public int StartNb { get; set; }
         [XmlAttribute]
         public int EndNb { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Hang> Hang { get; set; }
     }
 
 
@@ -1046,22 +1154,33 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public int ImpactID { get; set; }
 
+        [XmlElement]
         public StopPoint StopPoint { get; set; }
+        [XmlElement]
         public ImpactState ImpactState { get; set; }
+        [XmlElement]
         public ImpactStartDate ImpactStartDate { get; set; }
+        [XmlElement]
         public ImpactEndDate ImpactEndDate { get; set; }
+        [XmlElement]
         public ImpactCloseDate ImpactCloseDate { get; set; }
+        [XmlElement]
         public ImpactDuration ImpactDuration { get; set; }
+        [XmlElement]
         public ImpactMessage ImpactMessage { get; set; }
+        [XmlElement]
         public Event Event { get; set; }
     }
 
 
-    public class ImpactList : ObservableCollectionViewModel<Impact>
+    public class ImpactList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int ImpactCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Impact> Impact { get; set; }
     }
 
     public class ImpactPos : BaseViewModel
@@ -1142,15 +1261,20 @@ namespace NiouBusEngine.Navitia
         public int IsDisrupt { get; set; }
 
         // elements
+        [XmlElement]
         public Summary Summary { get; set; }
+        [XmlElement]
         public ObservableCollection<Section> Section { get; set; }
     }
 
 
-    public class JourneyResultList : ObservableCollectionViewModel<JourneyResult>
+    public class JourneyResultList : BaseViewModel
     {
         [XmlAttribute]
         public int JourneyResultCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<JourneyResult> JourneyResult { get; set; }
     }
 
 
@@ -1173,9 +1297,13 @@ namespace NiouBusEngine.Navitia
         public String SortOrder { get; set; }
 
         // elements
+        [XmlElement]
         public Mode Mode { get; set; }
+        [XmlElement]
         public Network Network { get; set; }
+        [XmlElement]
         public Forward Forward { get; set; }
+        [XmlElement]
         public Backward Backward { get; set; }
 
         //[XmlArray("EventPosList")]
@@ -1190,6 +1318,7 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public int LineCount { get; set; }
 
+        [XmlElement]
         public ObservableCollectionViewModel<Line> Line { get; set; }
     }
 
@@ -1223,10 +1352,13 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class ModeList : ObservableCollectionViewModel<Mode>
+    public class ModeList : BaseViewModel
     {
         [XmlAttribute]
         public int ModeCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Mode> Mode { get; set; }
     }
 
 
@@ -1269,7 +1401,7 @@ namespace NiouBusEngine.Navitia
         public string Region { get; set; }
 
         // listes d'elements
-        [XmlElement("Network")]
+        [XmlElement]
         public ObservableCollection<Network> Network { get; set; }
 
         public override string ToString()
@@ -1325,15 +1457,19 @@ namespace NiouBusEngine.Navitia
         public int Position { get; set; }
 
         // elements
+        [XmlElement]
         public Network Netowrk { get; set; }
     }
 
 
-    public class ODTList : ObservableCollectionViewModel<ODT>
+    public class ODTList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int ODTCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<ODT> ODT { get; set; }
     }
 
 
@@ -1355,16 +1491,21 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public int Distance { get; set; }
 
+        [XmlElement]
         public StopArea StopArea { get; set; }
+        [XmlElement]
         public StopPoint StopPoint { get; set; }
     }
 
 
-    public class ProximityList : ObservableCollectionViewModel<Proximity>
+    public class ProximityList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int ProximityCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Proximity> Proximity { get; set; }
     }
 
 
@@ -1385,14 +1526,18 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public int IsFrequence { get; set; }
 
+        [XmlElement]
         public Line Line { get; set; }
     }
 
 
-    public class RouteList : ObservableCollectionViewModel<Route>
+    public class RouteList : BaseViewModel
     {
         [XmlAttribute]
         public int RouteCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Route> Route { get; set; }
     }
 
 
@@ -1403,16 +1548,23 @@ namespace NiouBusEngine.Navitia
         public String Type { get; set; }
 
         // elements
+        [XmlElement]
         public Duration Duration { get; set; }
+        [XmlElement]
         public Departure Departure { get; set; }
+        [XmlElement]
         public Arrival Arrival { get; set; }
+        [XmlElement]
         public VehicleJourney VehicleJourney { get; set; }
+        [XmlElement]
         public Nota Nota { get; set; }
-        [XmlArray("FareSectionList")]
-        [XmlArrayItem("FareSection", typeof(FareSection))]
+        //[XmlArray("FareSectionList")]
+        //[XmlArrayItem("FareSection", typeof(FareSection))]
+        [XmlElement]
         public FareSectionList FareSectionList { get; set; }
-        [XmlArray("FareZoneList")]
-        [XmlArrayItem("FareZone", typeof(FareZone))]
+        //[XmlArray("FareZoneList")]
+        //[XmlArrayItem("FareZone", typeof(FareZone))]
+        [XmlElement]
         public FareZoneList FareZoneList { get; set; }
     }
 
@@ -1434,16 +1586,22 @@ namespace NiouBusEngine.Navitia
         public int Duration { get; set; }
 
         // elements
+        [XmlElement]
         public Address Address { get; set; }
+        [XmlElement]
         public StartNode StartNode { get; set; }
+        [XmlElement]
         public EndNode EndNode { get; set; }
     }
 
 
-    public class SegmentList : ObservableCollectionViewModel<Segment>
+    public class SegmentList : BaseViewModel
     {
         [XmlAttribute]
         public int SegmentCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Segment> Segment { get; set; }
     }
 
 
@@ -1460,10 +1618,15 @@ namespace NiouBusEngine.Navitia
         public String SiteExternalCode { get; set; }
 
         // elements
+        [XmlElement]
         public City City { get; set; }
+        [XmlElement]
         public SiteType SiteType { get; set; }
+        [XmlElement]
         public Coord Coord { get; set; }
+        [XmlElement]
         public SiteAddress SiteAddress { get; set; }
+        [XmlElement]
         public Comment Comment { get; set; }
     }
 
@@ -1484,11 +1647,14 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class SiteTypeList : ObservableCollectionViewModel<SiteType>
+    public class SiteTypeList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int SiteTypeCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<SiteType> SiteType { get; set; }
     }
 
 
@@ -1509,6 +1675,7 @@ namespace NiouBusEngine.Navitia
     public class StartNode : BaseViewModel
     {
         // elements
+        [XmlElement]
         public Coord Coord { get; set; }
     }
 
@@ -1597,22 +1764,29 @@ namespace NiouBusEngine.Navitia
         public String AdditionalData { get; set; }
 
         // elements
+        [XmlElement]
         public City City { get; set; }
+        [XmlElement]
         public Coord Coord { get; set; }
-        [XmlArray("HangList")]
-        [XmlArrayItem("Hang", typeof(Hang))]
+        //[XmlArray("HangList")]
+        //[XmlArrayItem("Hang", typeof(Hang))]
+        [XmlElement]
         public HangList HangList { get; set; }
-        [XmlArray("ModeList")]
-        [XmlArrayItem("Mode", typeof(Mode))]
+        //[XmlArray("ModeList")]
+        //[XmlArrayItem("Mode", typeof(Mode))]
+        [XmlElement]
         public ModeList ModeList { get; set; }
     }
 
 
-    public class StopAreaList : ObservableCollectionViewModel<StopArea>
+    public class StopAreaList : BaseViewModel
     {
         // attributs
         [XmlAttribute]
         public int StopAreaCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<StopArea> StopArea { get; set; }
     }
 
     [XmlType(AnonymousType = true)]
@@ -1623,7 +1797,9 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public string Nota { get; set; }
 
+        [XmlElement]
         public StopTime StopTime { get; set; }
+        [XmlElement]
         public Route Route { get; set; }
 
         [XmlElement("Stop")]
@@ -1647,11 +1823,17 @@ namespace NiouBusEngine.Navitia
         public int FareZone { get; set; }
 
         // éléments
+        [XmlElement]
         public StopPointAddress StopPointAddress { get; set; }
+        [XmlElement]
         public Equipment Equipment { get; set; }
+        [XmlElement]
         public Mode Mode { get; set; }
+        [XmlElement]
         public City City { get; set; }
+        [XmlElement]
         public StopArea StopArea { get; set; }
+        [XmlElement]
         public Coord Coord { get; set; }
         //[XmlArray("List")]
         //[XmlArrayItem("", typeof())]
@@ -1682,6 +1864,7 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public int StopPointCount { get; set; }
 
+        [XmlElement]
         public ObservableCollectionViewModel<StopPoint> StopPoint { get; set; }
     }
 
@@ -1693,13 +1876,21 @@ namespace NiouBusEngine.Navitia
         public int Interchange { get; set; }
 
         // elements
+        [XmlElement]
         public DepartureDate DepartureDate { get; set; }
+        [XmlElement]
         public DepartureTime DepartureTime { get; set; }
+        [XmlElement]
         public ArrivalDate ArrivalDate { get; set; }
+        [XmlElement]
         public ArrivalTime ArrivalTime { get; set; }
+        [XmlElement]
         public Duration Duration { get; set; }
+        [XmlElement]
         public TotalLinkTime TotalLinkTime { get; set; }
+        [XmlElement]
         public TotalWaitTime TotalWaitTime { get; set; }
+        [XmlElement]
         public Call Call { get; set; }
     }
 
@@ -1707,12 +1898,19 @@ namespace NiouBusEngine.Navitia
     public class This : BaseViewModel
     {
         // elements simples
+        [XmlElement]
         public int Sens { get; set; }
+        [XmlElement]
         public int Year { get; set; }
+        [XmlElement]
         public int Month { get; set; }
+        [XmlElement]
         public int Day { get; set; }
+        [XmlElement]
         public int Hour { get; set; }
+        [XmlElement]
         public int Minute { get; set; }
+        [XmlElement]
         public int Criteria { get; set; }
     }
 
@@ -1745,8 +1943,9 @@ namespace NiouBusEngine.Navitia
         [XmlAttribute]
         public int ValidityPatternSetIdx { get; set; }
 
-        [XmlArray("ValidityPatternSetDetailList")]
-        [XmlArrayItem("ValidityPatternSetDetail", typeof(ValidityPatternSetDetail))]
+        //[XmlArray("ValidityPatternSetDetailList")]
+        //[XmlArrayItem("ValidityPatternSetDetail", typeof(ValidityPatternSetDetail))]
+        [XmlElement]
         public ValidityPatternSetDetailList ValidityPatternSetDetailList { get; set; }
     }
 
@@ -1755,10 +1954,13 @@ namespace NiouBusEngine.Navitia
 
     }
 
-    public class ValidityPatternSetDetailList : ObservableCollectionViewModel<ValidityPatternSetDetail>
+    public class ValidityPatternSetDetailList : BaseViewModel
     {
         [XmlAttribute]
         public int VPatternSetDetailCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<ValidityPatternSetDetail> ValidityPatternSetDetail { get; set; }
     }
 
 
@@ -1800,11 +2002,17 @@ namespace NiouBusEngine.Navitia
         public String VehicleJourneyExternalCode { get; set; }
 
         // elements
+        [XmlElement]
         public Route Route { get; set; }
+        [XmlElement]
         public Destination Destination { get; set; }
+        [XmlElement]
         public Mode Mode { get; set; }
+        [XmlElement]
         public Company Company { get; set; }
+        [XmlElement]
         public Vehicle Vehicle { get; set; }
+        [XmlElement]
         public ValidityPattern ValidityPattern { get; set; }
         //[XmlArray("List")]
         //[XmlArrayItem("", typeof())]
@@ -1812,10 +2020,13 @@ namespace NiouBusEngine.Navitia
     }
 
 
-    public class VehicleList : ObservableCollectionViewModel<Vehicle>
+    public class VehicleList : BaseViewModel
     {
         [XmlAttribute]
         public int VehicleCount { get; set; }
+
+        [XmlElement]
+        public ObservableCollectionViewModel<Vehicle> Vehicle { get; set; }
     }
 
     // extensions
@@ -1831,8 +2042,9 @@ namespace NiouBusEngine.Navitia
         public String Region { get; set; }
 
         // elements
-        [XmlArray("NetworkList")]
-        [XmlArrayItem("Network", typeof(Network))]
+        //[XmlArray("NetworkList")]
+        //[XmlArrayItem("Network", typeof(Network))]
+        [XmlElement]
         public NetworkList NetworkList { get; set; }
     }
 

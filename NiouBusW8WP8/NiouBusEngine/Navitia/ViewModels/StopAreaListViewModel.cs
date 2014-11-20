@@ -95,7 +95,7 @@ namespace NiouBusEngine
             }
 
             this.Items.Clear();
-            foreach (var stoparea in xd.StopArea)
+            foreach (var stoparea in xd.StopAreaList.StopArea)
             {
                 this.Items.Add(new StopAreaViewModel()
                 {
