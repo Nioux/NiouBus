@@ -1,0 +1,19 @@
+﻿<!--
+      *********    NE PAS MODIFIER CE FICHIER     *********
+      Ce fichier est régénéré par un outil de création.Modifier
+ .     ce fichier peut provoquer des erreurs.
+-->
+<SampleData:SampleDataSource xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+  <SampleData:SampleDataSource.Collection>
+    <SampleData:Item Property1="Aenean nam" Property2="True" />
+    <SampleData:Item Property1="Mauris sed nullam aliquam" Property2="False" />
+    <SampleData:Item Property1="Dis class integer cras" Property2="True" />
+    <SampleData:Item Property1="Curae quisque maecenas donec" Property2="False" />
+    <SampleData:Item Property1="Aptent praesent" Property2="True" />
+    <SampleData:Item Property1="Vivamus aliquam etiam est" Property2="False" />
+    <SampleData:Item Property1="Accumsan fusce bibendum" Property2="True" />
+    <SampleData:Item Property1="Duis dictumst lorem nunc" Property2="False" />
+    <SampleData:Item Property1="Hac amet aliquet" Property2="True" />
+    <SampleData:Item Property1="Auctor morbi congue blandit" Property2="False" />
+  </SampleData:SampleDataSource.Collection>
+</SampleData:SampleDataSource>

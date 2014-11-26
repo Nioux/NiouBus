@@ -44,7 +44,6 @@ namespace NiouBusEngine
                 DateChangeTime: new TimeSpan(4, 0, 0));
         }
 
-
         public String DirectionName
         {
             get

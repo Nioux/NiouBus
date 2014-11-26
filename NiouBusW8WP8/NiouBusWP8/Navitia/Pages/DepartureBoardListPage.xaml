@@ -10,12 +10,14 @@
     xmlns:local="clr-namespace:NiouBusWP8"
     mc:Ignorable="d"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-    d:DataContext="{d:DesignData SampleData/DepartureBoardListSampleData.xaml}"
+    d:DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+
+    <!--d:DataContext="{d:DesignData SampleData/DepartureBoardListSampleData.xaml}"-->
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
 
@@ -47,6 +49,7 @@
                             </DataTemplate>
                         </phone:LongListSelector.ItemTemplate>
                     </phone:LongListSelector>
+                    <TextBlock Text="{Binding truc}"></TextBlock>
                 </Grid>
             </phone:PivotItem>
 

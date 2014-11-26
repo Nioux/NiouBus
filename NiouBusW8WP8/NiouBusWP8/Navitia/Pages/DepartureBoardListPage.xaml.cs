@@ -23,12 +23,27 @@ namespace NiouBusWP8
                 Set(ref _VM, value);
             }
         }
-
+        public string truc { get { return "truc"; } set { } }
         public DepartureBoardListPage()
         {
             InitializeComponent();
 
             VM = new DepartureBoardListViewModel();
+#if DEBUG
+            if (System.ComponentModel.DesignerProperties.IsInDesignTool)
+            {
+                VM.Date = DateTime.Now;
+                VM.DepartureBoardList = new DepartureBoardList();
+                VM.DepartureBoardList.StopList = new StopList();
+                VM.DepartureBoardList.StopList.Nota = "test nota";
+
+                VM.DepartureBoardList.LineList = new LineList();
+                VM.DepartureBoardList.LineList.Line = new ObservableCollectionViewModel<Line>();
+                VM.DepartureBoardList.LineList.Line.Add(new Line());
+                VM.DepartureBoardList.LineList.Line[0].LineCode = "test line code";
+            }
+#endif
+            DataContext = this;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -57,20 +72,26 @@ namespace NiouBusWP8
             if (e.OldDateTime.HasValue && e.NewDateTime.HasValue)
             {
                 VM.Date = e.NewDateTime.Value;
+                IsDataLoading = true;
                 await VM.LoadDataAsync();
+                IsDataLoading = false;
             }
         }
 
         private async void appBarButtonPrevious_Click(object sender, EventArgs e)
         {
             VM.Date = VM.Date.AddDays(-1);
+            IsDataLoading = true;
             await VM.LoadDataAsync();
+            IsDataLoading = false;
         }
 
         private async void appBarButtonNext_Click(object sender, EventArgs e)
         {
             VM.Date = VM.Date.AddDays(1);
+            IsDataLoading = true;
             await VM.LoadDataAsync();
+            IsDataLoading = false;
         }
     }
 }
